@@ -54,7 +54,6 @@ export default {
 
 <style>
 
-
 .section-novedades{
     display: flex;
     width: 100%;
