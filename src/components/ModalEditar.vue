@@ -24,6 +24,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          
           <button id="btn-editar-modal" type="button" class="btn btn-primary btn-edit" data-dismiss="modal">Guardar</button>
         </div>
       </div>

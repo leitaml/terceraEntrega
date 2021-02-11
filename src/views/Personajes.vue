@@ -30,9 +30,10 @@
          </div>
            <div class="col-6 col-md-6">
              <div class="zona-buscar" id="buscador-filtro">
-
-                <input class="form-control input-filtro hidden" id="inputTabla" type="search" placeholder="Filtrar Busqueda"
-                 aria-label="Search">
+             
+             <input class="form-control input-filtro " id="inputTabla" type="search" placeholder="Filtrar Busqueda" aria-label="Search">
+                 
+                 
             </div>
 
           </div>
@@ -75,6 +76,7 @@
 
 
 <script>
+
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import ModalAgregar from "../components/ModalAgregar"
@@ -89,10 +91,9 @@ export default {
     ModalAgregar,
     ModalEditar,
     ModalEliminar,
-    Tabla
+    Tabla,
+    
   },
- 
-
 
 }
 </script>

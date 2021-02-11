@@ -1,11 +1,30 @@
 <template>
   <div>
-      <table id="tablaDinamica"> </table>
 
-      
-    <div v-for="item in arrayPersonajes" :key="item.id">
-      {{ item }}
-    </div>
+       <table class="table table-dark table-striped">
+        <thead>
+             <tr>
+               <th scope="col">#</th>
+               <th scope="col">Nombre</th>
+               <th scope="col">Origen</th>
+               <th scope="col">Edad</th>
+               <th scope="col">Caracteristica</th>
+               <th scope="col">Habilidad</th>
+            </tr>
+        </thead>
+       <tbody>
+    <tr   v-for="item in arrayPersonajes" :key="item.id"> {{ item }}>
+      <th scope="row">{{ item.id }}</th>
+               <td>{{ item.Nombre }}</td>
+               <td>{{ item.Origen }}</td>
+               <td>{{ item.Edad }}</td>
+               <td>{{ item.Caracteristica }}</td>
+               <td>{{ item.Habilidad}}</td> 
+    </tr>
+  </tbody>
+</table>
+
+    
 
   </div>
 </template>
@@ -32,11 +51,13 @@ export default {
     }
   }, 
 
-  created() {
-    this.consumirApi()
-  }
+/* CICLO DE VIDA */
+     created() {
+    this.consumirApi() 
+  } 
 
 }
+
 </script>
 
 <style>
