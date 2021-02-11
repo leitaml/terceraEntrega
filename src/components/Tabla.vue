@@ -10,16 +10,21 @@
                <th scope="col">Edad</th>
                <th scope="col">Caracteristica</th>
                <th scope="col">Habilidad</th>
+               <th scope="col">Accion</th>
+               
             </tr>
         </thead>
        <tbody>
-    <tr   v-for="item in arrayPersonajes" :key="item.id"> {{ item }}>
+    <tr   v-for="item in arrayPersonajes" :key="item.id"> 
       <th scope="row">{{ item.id }}</th>
                <td>{{ item.Nombre }}</td>
                <td>{{ item.Origen }}</td>
                <td>{{ item.Edad }}</td>
                <td>{{ item.Caracteristica }}</td>
                <td>{{ item.Habilidad}}</td> 
+               <td> <button class="btn btn-primary btn-sm btn-editar"> Editar</button> 
+                    <button class="btn btn-danger btn-sm btn-eliminar"> Eliminar</button>
+               </td> 
     </tr>
   </tbody>
 </table>
@@ -61,5 +66,9 @@ export default {
 </script>
 
 <style>
+
+.btn-editar{
+  margin-right: 15px;
+}
 
 </style>

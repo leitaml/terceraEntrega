@@ -1,5 +1,5 @@
 <template>
-<div>
+<div> 
 
    <!-- Componente NABVAR -->
    <Navbar />
@@ -48,7 +48,7 @@
 
 
     <!-- Button modal AGREGAR -->
-    <button type="button" class="btn btn-success btn-agregar" data-toggle="modal" data-target="#staticBackdrop">
+    <button type="button" class="btn btn-success btn-lg btn-agregar" data-toggle="modal" data-target="#staticBackdrop">
       Agregar Personaje
     </button>
 
@@ -99,7 +99,6 @@ export default {
 </script>
 
 <style>
-
        
 .section-personajes {
     width: 100%;
@@ -110,8 +109,10 @@ export default {
 
 .seccion-tabla{
     width: 100%;
-    height: 1300px;
+    height: 250px;
 }
+
+
 
 
 .imagen-trans{
@@ -135,16 +136,6 @@ export default {
     padding: 25px;
 }
 
-
-table {
-    width: 1000px;
-    font-size: 16px;
-    text-align: center;
-    border: 1px solid black;
-    height: 340px; 
-    margin-left: 170px;
-       
-}
 
 .td-Head{
     background-color: #f4f4f4;
@@ -174,23 +165,13 @@ table {
  
     margin-left: 580px;
     margin-top: 40px;   
-    margin-bottom: 30px;
+    margin-bottom: 500px;
 }
 
 .tr-Elementos{
     border: 1px solid black;
  }
 
-
- .btn-eliminar{
-    margin-top: 5px;
-    margin-right: 5px;
-    display: inline-block;
-    width: 75px;
-    border-radius: 5px;
-    padding: 1px;
-    margin-bottom: 5px;
- }
 
  .titulo-modal{
      font-size: 15px;
