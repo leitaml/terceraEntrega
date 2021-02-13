@@ -1,7 +1,7 @@
 <template>
 
 <div>
-  <b-button class="btn-agregar btn btn-success"  v-b-modal.modal-lg >Agregar Personaje</b-button>
+  <b-button class="btn-agregar btn btn-success"  v-b-modal.modal-lg>Agregar Personaje</b-button>
 
   <b-modal id="modal-lg" title="AGREGAR PERSONAJE">
 
@@ -18,8 +18,7 @@
               DESEA CONTINUAR?
             </h4>
           </div>
-          <button>aceptar</button>
-          <button>eliminar</button>
+        
 
   </b-modal>
   

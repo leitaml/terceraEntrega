@@ -40,7 +40,7 @@
 
 export default {
 
-          data() {
+         data() {
     return {
       arrayPersonajes: [] 
     }
@@ -61,7 +61,7 @@ export default {
  
 
 /* CICLO DE VIDA */
-     created() {
+     mounted() {
     this.consumirApi() 
   } 
 

@@ -87,10 +87,11 @@ export default {
     Tabla,
     
   },
-
   
+   
 
 }
+  
 </script>
 
 <style>
