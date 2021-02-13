@@ -46,12 +46,6 @@
     <Tabla />
 
 
-
-    <!-- Button modal AGREGAR -->
-    <button type="button" class="btn btn-success btn-lg btn-agregar" data-toggle="modal" data-target="#staticBackdrop">
-      Agregar Personaje
-    </button>
-
     <!--Componente  Modal AGREGAR -->
     <ModalAgregar />
 
@@ -62,7 +56,6 @@
 
     <!-- Componente MODAL ELIMINAR -->
     <ModalEliminar />
-
 
 
     <!-- Componente FOOTER  -->
@@ -95,6 +88,8 @@ export default {
     
   },
 
+  
+
 }
 </script>
 
@@ -113,8 +108,6 @@ export default {
 }
 
 
-
-
 .imagen-trans{
 
         display: flex;
@@ -127,8 +120,6 @@ export default {
 }
 
     
-
-
 .titulo-personajes{
     text-align: center;
     font-size: 20px;
@@ -172,16 +163,6 @@ export default {
     border: 1px solid black;
  }
 
-
- .titulo-modal{
-     font-size: 15px;
-     margin-top: 15px;
- }
-
- .form-control{
-      margin-bottom: 10px;
-      width: 50%;
- }
 
  .input-filtro{
    width: 200px;

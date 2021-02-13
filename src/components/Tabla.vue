@@ -29,17 +29,20 @@
   </tbody>
 </table>
 
+
+
     
 
   </div>
 </template>
 
 <script>
+
 export default {
 
           data() {
     return {
-      arrayPersonajes: []
+      arrayPersonajes: [] 
     }
   },
          methods: {
@@ -55,6 +58,7 @@ export default {
       }
     }
   }, 
+ 
 
 /* CICLO DE VIDA */
      created() {

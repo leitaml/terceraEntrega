@@ -1,6 +1,6 @@
 <template>
   <div>
-      <footer>
+      <footer class="footer-component">
 
     <div class="container">
       <div class="row">
@@ -54,7 +54,7 @@ export default {
 <style>
 
 
-footer{
+.footer-component{
     width: 100%;
     height: 120px;
 }
@@ -102,7 +102,7 @@ footer{
 
 }
 
-footer h4{
+.footer-component h4{
     font-size: 1rem;
 }
 
@@ -114,11 +114,11 @@ footer h4{
 /* COLORES  */
 
 
-    footer{
+    .footer-component{
         background-color: black;
 
     }
-    footer div h4{
+    .footer-component div h4{
         color: white;
     }
 
@@ -130,7 +130,7 @@ footer h4{
 
 
     @media  screen and (max-width: 490px){
-        footer div  h4{
+        .footer-component div  h4{
             display: none;
            
         }
@@ -138,7 +138,7 @@ footer h4{
     }
 
     @media screen and (max-width: 768px) { 
-      footer div  h4{
+      .footer-component div  h4{
             font-size: 18px;
         }
 

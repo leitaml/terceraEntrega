@@ -7,7 +7,7 @@
 
     <!-- header -->
    
-  <header>
+  <header class="header-home">
 
 
     <div class="container">
@@ -173,7 +173,7 @@ export default {
 <style>
 
 
-header{
+.header-home{
     background-image: url(../assets/image-section-2.jpg);
     width: 100%;
     height: 700px;
@@ -184,14 +184,14 @@ header{
 
 
 
-header div h1{
+.header-home div h1{
     
     font-size: 50px;
     margin-top: 130px;
     
 }
 
-header div p {
+.header-home div p {
     font-size: 25px ;
     margin-top: 10px;
     
@@ -302,12 +302,12 @@ section div p{
 
 /*  Header */
 
-header div h1{
+.header-home div h1{
       color: black;
 
 }
 
-header div p {
+.header-home div p {
     color: #1a1a2e;
 }
 
