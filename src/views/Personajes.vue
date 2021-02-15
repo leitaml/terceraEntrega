@@ -1,5 +1,5 @@
 <template>
-<div>
+<div> 
 
    <!-- Componente NABVAR -->
    <Navbar />
@@ -30,9 +30,10 @@
          </div>
            <div class="col-6 col-md-6">
              <div class="zona-buscar" id="buscador-filtro">
-
-                <input class="form-control input-filtro hidden" id="inputTabla" type="search" placeholder="Filtrar Busqueda"
-                 aria-label="Search">
+             
+             <input class="form-control input-filtro " id="inputTabla" type="search" placeholder="Filtrar Busqueda" aria-label="Search">
+                 
+                 
             </div>
 
           </div>
@@ -44,12 +45,6 @@
     <!-- Componente Tabla -->
     <Tabla />
 
-
-
-    <!-- Button modal AGREGAR -->
-    <button type="button" class="btn btn-success btn-agregar" data-toggle="modal" data-target="#staticBackdrop">
-      Agregar Personaje
-    </button>
 
     <!--Componente  Modal AGREGAR -->
     <ModalAgregar />
@@ -63,7 +58,6 @@
     <ModalEliminar />
 
 
-
     <!-- Componente FOOTER  -->
     <Footer />
 
@@ -75,6 +69,7 @@
 
 
 <script>
+
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import ModalAgregar from "../components/ModalAgregar"
@@ -89,16 +84,17 @@ export default {
     ModalAgregar,
     ModalEditar,
     ModalEliminar,
-    Tabla
+    Tabla,
+    
   },
- 
-
+  
+   
 
 }
+  
 </script>
 
 <style>
-
        
 .section-personajes {
     width: 100%;
@@ -109,7 +105,7 @@ export default {
 
 .seccion-tabla{
     width: 100%;
-    height: 1300px;
+    height: 250px;
 }
 
 
@@ -125,8 +121,6 @@ export default {
 }
 
     
-
-
 .titulo-personajes{
     text-align: center;
     font-size: 20px;
@@ -134,16 +128,6 @@ export default {
     padding: 25px;
 }
 
-
-table {
-    width: 1000px;
-    font-size: 16px;
-    text-align: center;
-    border: 1px solid black;
-    height: 340px; 
-    margin-left: 170px;
-       
-}
 
 .td-Head{
     background-color: #f4f4f4;
@@ -173,33 +157,13 @@ table {
  
     margin-left: 580px;
     margin-top: 40px;   
-    margin-bottom: 30px;
+    margin-bottom: 500px;
 }
 
 .tr-Elementos{
     border: 1px solid black;
  }
 
-
- .btn-eliminar{
-    margin-top: 5px;
-    margin-right: 5px;
-    display: inline-block;
-    width: 75px;
-    border-radius: 5px;
-    padding: 1px;
-    margin-bottom: 5px;
- }
-
- .titulo-modal{
-     font-size: 15px;
-     margin-top: 15px;
- }
-
- .form-control{
-      margin-bottom: 10px;
-      width: 50%;
- }
 
  .input-filtro{
    width: 200px;

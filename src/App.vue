@@ -7,6 +7,14 @@
   </div>
 </template>
 
+<script>
+
+window.$ = window.jQuery = require("jquery");
+export default {
+  
+}
+</script>
+
 <style>
 
 
