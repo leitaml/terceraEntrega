@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1",
+    "Nombre": "Ragnar Lodblok",
+    "Origen": "Northumbria , Reino Unido",
+    "Edad": "41",
+    "Caracteristica": "Guerrero Vikingo",
+    "Habilidad": "Ojo de Odin"
+  },
+  {
+    "id": "2",
+    "Nombre": "Osric",
+    "Origen": "Theotford",
+    "Edad": "39",
+    "Caracteristica": "Viajero",
+    "Habilidad": "disappear things"
+  },
+  {
+    "id": "3",
+    "Nombre": "Eivor",
+    "Origen": "Noruega , Inglaterra",
+    "Edad": "23",
+    "Caracteristica": "Guerrero Vikingo",
+    "Habilidad": "Sigilio del cuervo"
+  },
+  {
+    "id": "4",
+    "Nombre": "Sigurd Styrbjornsson",
+    "Origen": "Noruega , Reino Unido",
+    "Edad": "38",
+    "Caracteristica": "Guerrero Vikingo",
+    "Habilidad": "Death Knife"
+  },
+  {
+    "id": "5",
+    "Nombre": "Osvaldo de Estanglia",
+    "Origen": "Estanglia , Inglaterra",
+    "Edad": "40",
+    "Caracteristica": "Rey de Estanglia",
+    "Habilidad": "Tropa sajona"
+  },
+  {
+    "id": "6",
+    "Nombre": "Basim Ibn Ishaq",
+    "Origen": "Inglaterra",
+    "Edad": "43",
+    "Caracteristica": "Brujo",
+    "Habilidad": "Basaamaa"
+  },
+  {
+    "id": "7",
+    "Nombre": "Edmundo el Mártir",
+    "Origen": "Estanglia, Inglaterra",
+    "Edad": "53",
+    "Caracteristica": "Viajero",
+    "Habilidad": "anglo endomun"
+  },
+  {
+    "id": "8",
+    "Nombre": "Aella de Northumbria",
+    "Origen": "Northumbria, Inglaterra",
+    "Edad": "27",
+    "Caracteristica": "Guerrero Vikingo",
+    "Habilidad": "heavy hand"
+  },
+  {
+    "id": "9",
+    "Nombre": "Valdis",
+    "Origen": "Estanglia, Inglaterra",
+    "Edad": "40",
+    "Caracteristica": "Reina de Estanglia",
+    "Habilidad": "astral vision"
+  },
+  {
+    "id": "10",
+    "Nombre": "Wynnstan",
+    "Origen": "Theotford ,Reino de Estanglia",
+    "Edad": "62",
+    "Caracteristica": "Obispo",
+    "Habilidad": "out universe"
+  },
+  {
+    "id": "11",
+    "Nombre": "Kjotve el Cruel",
+    "Origen": "Rygjafylke, Noruega",
+    "Edad": "48",
+    "Caracteristica": "Rey Vikingo",
+    "Habilidad": "El Hacha"
+  },
+  {
+    "id": "12",
+    "Nombre": "Ivar el Deshuesado",
+    "Origen": "Northumbria , Reino Unido",
+    "Edad": "35",
+    "Caracteristica": "Guerrero Vikingo",
+    "Habilidad": "mighty bone"
+  },
+  {
+    "id": "13",
+    "Nombre": "Ubba Ragnarsson",
+    "Origen": "Northumbria , Reino Unido",
+    "Edad": "36",
+    "Caracteristica": "Guerrero Vikingo",
+    "Habilidad": "viking attack"
+  },
+  {
+    "id": "14",
+    "Nombre": "Finnr",
+    "Origen": "Northumbria",
+    "Edad": "61",
+    "Caracteristica": "Viajero",
+    "Habilidad": "raven clan"
+  },
+  {
+    "id": "15",
+    "Nombre": "Rued el Terrible",
+    "Origen": "Estanglia, Inglaterra",
+    "Edad": "44",
+    "Caracteristica": "Rey Vikingo",
+    "Habilidad": "odin's hand"
+  }
+]
