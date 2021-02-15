@@ -1,8 +1,9 @@
 <template>
 
 <div>
-  <b-button class="btn-agregar btn btn-success"  v-b-modal.modal-lg>Agregar Personaje</b-button>
-
+  
+   <BtnModalAgregar />
+   
   <b-modal id="modal-lg" title="AGREGAR PERSONAJE">
 
      <div class="modal-body">
@@ -29,6 +30,15 @@
 
 
 <script>
+
+import BtnModalAgregar from "../components/BtnModalAgregar"
+
+export default {
+
+  components: {
+    BtnModalAgregar,
+  }
+}
  
 </script>
 

@@ -61,7 +61,7 @@ export default {
  
 
 /* CICLO DE VIDA */
-     mounted() {
+     created() {
     this.consumirApi() 
   } 
 
