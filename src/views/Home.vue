@@ -158,6 +158,8 @@ import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import Carousel from '../components/Carousel.vue'
 
+window.$ = window.jQuery = require("jquery");
+
 export default {
   name: 'Home',
   components: {
@@ -165,7 +167,9 @@ export default {
     Footer,
     Carousel
   
-  }
+  }, 
+ 
+
 }
 </script>
 
