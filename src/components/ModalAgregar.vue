@@ -1,11 +1,8 @@
 <template>
 
 <div>
-  
-   <BtnModalAgregar />
-   
+  <BtnModalAgregar />
   <b-modal id="modal-lg" title="AGREGAR PERSONAJE">
-
      <div class="modal-body">
             <div>
               <input id="nombreModal" type="text" class="form-control input-modal" placeholder="NOMBRE">
@@ -18,16 +15,11 @@
               SE ESTA POR AGREGAR UN NUEVO PERSONAJE!
               DESEA CONTINUAR?
             </h4>
-          </div>
-        
-
+      </div>
   </b-modal>
-  
 </div>
   
 </template>
-
-
 
 <script>
 
@@ -50,5 +42,4 @@ export default {
 .input-modal{
   margin-bottom: 15px;
 }
-
 </style>
