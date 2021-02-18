@@ -1,6 +1,5 @@
 <template>
   <div>
-
        <table class="table table-dark table-striped">
         <thead>
              <tr>
@@ -48,13 +47,13 @@ export default {
       } catch (error) {
         console.log(error)
       }
-    }
+    },
   }, 
 
 /* CICLO DE VIDA */
   created() {
     this.consumirApi() 
-  } 
+  }
 }
 
 </script>
