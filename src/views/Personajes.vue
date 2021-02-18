@@ -166,7 +166,7 @@ export default {
 
 
  .input-filtro{
-   width: 200px;
+   width: 400px
  }
 
 

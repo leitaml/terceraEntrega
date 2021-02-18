@@ -15,21 +15,21 @@
             </tr>
         </thead>
        <tbody>
-    <tr   v-for="item in arrayPersonajes" :key="item.id"> 
+    <tr   v-for=" (item , index) in arrayPersonajes" :key="item.id" > 
       <th scope="row">{{ item.id }}</th>
                <td>{{ item.Nombre }}</td>
                <td>{{ item.Origen }}</td>
                <td>{{ item.Edad }}</td>
                <td>{{ item.Caracteristica }}</td>
                <td>{{ item.Habilidad}}</td> 
-               <td> <button class="btn btn-primary btn-sm btn-editar"> Editar</button> 
-                    <button class="btn btn-danger btn-sm btn-eliminar"> Eliminar</button>
+               <td> <button class="btn btn-primary btn-sm btn-editar" > Editar</button> 
+                    <button class="btn btn-danger btn-sm btn-eliminar" @click="eliminar(index , item)"> Eliminar</button>
                </td> 
     </tr>
   </tbody>
 </table>
 
-
+ 
 
     
 
@@ -37,15 +37,37 @@
 </template>
 
 <script>
+import axios from "axios"
 
 export default {
 
-         data() {
+          data() {
     return {
       arrayPersonajes: [] 
     }
   },
-         methods: {
+     mounted : function() {
+       let consumirApi = "https://602367ff6bf3e6001766b0c8.mockapi.io/api/v1/users"
+       axios.get(consumirApi).then (data => {
+         console.log(data)
+         this.arrayPersonajes = data.data
+       })
+     },
+     methods : {
+       editar(id) {
+         console.log(id)
+       },
+
+       eliminar(index , item) {
+        
+        console.log(index)
+        console.log(item)
+        this.arrayPersonajes.splice(index , 1)
+       }
+     }
+
+
+    /*      methods: {
 
     async consumirApi() {
       try {
@@ -57,16 +79,16 @@ export default {
         console.log(error)
       }
     }
-  }, 
- 
+  },  */
+  
 
-/* CICLO DE VIDA */
+/* CICLO DE VIDA 
      created() {
     this.consumirApi() 
-  } 
+  } */
 
 }
-
+ 
 </script>
 
 <style>

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
+  
      
     </div>
     <router-view/>
@@ -9,7 +10,9 @@
 
 <script>
 
-window.$ = window.jQuery = require("jquery");
+
+
+
 export default {
   
 }
