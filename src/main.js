@@ -1,4 +1,9 @@
 import Vue from 'vue'
+import Axios from 'axios';
+import VueAxios from 'vue-axios';
+
+Vue.use(VueAxios, Axios);
+
 import App from './App.vue'
 import jQuery from "jquery"
 global.jQuery = jQuery
@@ -7,10 +12,14 @@ let Bootstrap = require("bootstrap")
 import router from './router'
 import store from './store'
 
-import "bootstrap/dist/css/bootstrap.css"
-// import "bootstrap-vue/dist/bootstrap-vue.css"
+import bootstrapVue from "bootstrap-vue"
 
-// Vue.use(bootstrapVue)
+Vue.use(bootstrapVue)
+
+import "bootstrap/dist/css/bootstrap.css"
+import "bootstrap-vue/dist/bootstrap-vue.css"
+
+Vue.use(bootstrapVue)
 Vue.config.productionTip = false
 
 new Vue({

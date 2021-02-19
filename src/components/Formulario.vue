@@ -14,17 +14,22 @@
           <form class="form-principal">
             <div class="form-group ">
 
-              <label for="exampleInputEmail2">Email :</label>
-              <input type="email" class="form-control" id="exampleInputEmail2">
+              <label for="exampleInputEmail2">Usuario :</label>
+              <input type="text" class="form-control" name="login" id="login"
+               v-model="usuario">
 
             </div>
             <div class="form-group ">
 
               <label for="exampleInputPassword2">Contraseña :</label>
-              <input type="password" class="form-control" id="exampleInputPassword2">
+              <input type="password" class="form-control" name="password" id="password"
+               v-model="password">
             </div>
 
-            <button type="submit" class="btn btn-primary">Entrar</button>
+
+            <button type="submit" class="btn btn-primary" 
+              @click.prevent="login"
+               >Entrar</button>
           </form>
         </div>
       </div>
@@ -78,10 +83,46 @@
   </div>
 </template>
 
+
+
 <script>
+
+import axios from "axios"
 export default {
 
+  
+  data: function() {
+    return {
+      usuario: "",
+      password: "",
+    }
+  },
+  methods: {
+    login() {
+     let datos = {
+       "usuario" : this.usuario,
+       "password" : this.password
+     };
+     axios.post("https://602367ff6bf3e6001766b0c8.mockapi.io/api/v1/users" , datos)
+     .then(data => {
+     console.log(data)
+     if(data.data.usuario == "juan" && data.data.password == 123456){
+       console.log("Bienvenido Juan")
+     }else {
+       console.log("Usuario incorrecto")
+     }
+      
+     })
+
+  }
 }
+}
+
+  
+
+
+
+
 </script>
 
 <style>
