@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
+
+   
+      
   
      
     </div>
@@ -10,15 +13,16 @@
 
 <script>
 
-
-
-
 export default {
-  
+
 }
+
+  
+
 </script>
 
 <style>
+
 
 
 </style>

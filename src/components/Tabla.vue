@@ -1,6 +1,40 @@
 <template>
   <div>
 
+     <div class="seccion-tabla">
+      <h1 class="titulo-personajes"> PERSONAJES DEL JUEGO</h1>
+
+     <div class="container">
+       <div class="row">
+         <div class="col-6 col-md-6">
+
+              <div class="zona-boton">
+                 <label class="switch">
+                    <input id="checkbox-filtro" type="checkbox">
+                    <span class="slider round"></span>
+                 </label>
+                      <p class="parrafo-filtro">Activar / Desactivar FILTRO</p>
+              </div>
+
+         </div>
+           <div class="col-6 col-md-6">
+             <div class="zona-buscar" id="buscador-filtro">
+             
+             <input class="form-control input-filtro " id="inputTabla" type="search" placeholder="Filtrar Busqueda" aria-label="Search"
+              v-model="nuevoArray">
+              
+            
+              
+                 
+                 
+            </div>
+
+          </div>
+      </div>
+    </div>
+    </div>
+
+
        <table class="table table-dark table-striped">
         <thead>
              <tr>
@@ -15,8 +49,12 @@
             </tr>
         </thead>
        <tbody>
+
+        <tr   v-for=" item in filtrarTabla" :key="item.Nombre" >  
+
+
     <tr   v-for=" (item , index) in arrayPersonajes" :key="item.id" > 
-      <th scope="row">{{ item.id }}</th>
+      <th scope="row" @click="rows($event.target)">{{ item.id }}</th>
                <td>{{ item.Nombre }}</td>
                <td>{{ item.Origen }}</td>
                <td>{{ item.Edad }}</td>
@@ -43,7 +81,10 @@ export default {
 
           data() {
     return {
-      arrayPersonajes: [] 
+      arrayPersonajes: [] ,
+      nuevoArray: ""
+      
+     
     }
   },
      mounted : function() {
@@ -64,7 +105,23 @@ export default {
         console.log(item)
         this.arrayPersonajes.splice(index , 1)
        }
+     },
+
+     limpiarInput() {
+         this.nuevoArray = ""
+     },
+     
+
+     computed: {
+       filtrarTabla : function () {
+         console.log(this.nuevoArray)
+            return this.arrayPersonajes = this.arrayPersonajes.filter(( item) => {
+              return item.Nombre.match(this.nuevoArray)
+              
+            })
+       }
      }
+
 
 
     /*      methods: {
@@ -92,6 +149,59 @@ export default {
 </script>
 
 <style>
+.btn-agregar{
+ 
+    margin-left: 580px;
+    margin-top: 40px;   
+    margin-bottom: 500px;
+}
+
+.tr-Elementos{
+    border: 1px solid black;
+ }
+
+
+ .input-filtro{
+   width: 400px
+ }
+
+
+ .zona-boton{
+width: 100%;
+height: 100px;
+
+ }
+ .zona-buscar{
+    width: 100%;
+    height: 100px;
+    margin-top: 35px;
+  
+    
+ }
+ .parrafo-filtro{
+     font: bold;
+     font-size: 15px;
+     font-weight: 500;
+     margin-left: 65px;
+     
+ }
+
+
+
+ .filtro{
+     width: 100%;
+     padding-bottom: 25px;
+     
+ }
+ 
+    
+
+
+
+.seccion-tabla{
+    width: 100%;
+    height: 250px;
+}
 
 .btn-editar{
   margin-right: 15px;

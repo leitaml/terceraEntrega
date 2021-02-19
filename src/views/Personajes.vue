@@ -12,35 +12,7 @@
         </div>
   </div>
 
-  <div class="seccion-tabla">
-      <h1 class="titulo-personajes"> PERSONAJES DEL JUEGO</h1>
-
-     <div class="container">
-       <div class="row">
-         <div class="col-6 col-md-6">
-
-              <div class="zona-boton">
-                 <label class="switch">
-                    <input id="checkbox-filtro" type="checkbox">
-                    <span class="slider round"></span>
-                 </label>
-                      <p class="parrafo-filtro">Activar / Desactivar FILTRO</p>
-              </div>
-
-         </div>
-           <div class="col-6 col-md-6">
-             <div class="zona-buscar" id="buscador-filtro">
-             
-             <input class="form-control input-filtro " id="inputTabla" type="search" placeholder="Filtrar Busqueda" aria-label="Search">
-                 
-                 
-            </div>
-
-          </div>
-      </div>
-    </div>
-    </div>
-
+ 
 
     <!-- Componente Tabla -->
     <Tabla />
@@ -51,7 +23,7 @@
 
 
     <!-- Componenete MODAL EDITAR -->
-    <ModalEditar />
+    <ModalEditar  />
 
 
     <!-- Componente MODAL ELIMINAR -->
@@ -60,6 +32,7 @@
 
     <!-- Componente FOOTER  -->
     <Footer />
+    
 
 
 
@@ -87,9 +60,6 @@ export default {
     Tabla,
     
   },
-  
-   
-
 }
   
 </script>
@@ -103,10 +73,6 @@ export default {
 
 }
 
-.seccion-tabla{
-    width: 100%;
-    height: 250px;
-}
 
 
 .imagen-trans{
@@ -153,52 +119,6 @@ export default {
     margin-bottom: 5px;
 }
 
-.btn-agregar{
- 
-    margin-left: 580px;
-    margin-top: 40px;   
-    margin-bottom: 500px;
-}
-
-.tr-Elementos{
-    border: 1px solid black;
- }
-
-
- .input-filtro{
-   width: 400px
- }
-
-
- .zona-boton{
-width: 100%;
-height: 100px;
-
- }
- .zona-buscar{
-    width: 100%;
-    height: 100px;
-    margin-top: 35px;
-  
-    
- }
- .parrafo-filtro{
-     font: bold;
-     font-size: 15px;
-     font-weight: 500;
-     margin-left: 65px;
-     
- }
-
-
-
- .filtro{
-     width: 100%;
-     padding-bottom: 25px;
-     
- }
- 
-    
 
 
  

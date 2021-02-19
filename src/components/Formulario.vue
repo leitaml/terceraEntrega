@@ -119,11 +119,11 @@ export default {
   },
   methods: {
     login() {
-     let json = {
+     let datos = {
        "usuario" : this.usuario,
        "password" : this.password
      };
-     axios.post("https://602367ff6bf3e6001766b0c8.mockapi.io/api/v1/users" , json)
+     axios.post("https://602367ff6bf3e6001766b0c8.mockapi.io/api/v1/users" , datos)
      .then(data => {
      console.log(data)
      if(data.data.usuario == "juan" && data.data.password == 123456){
