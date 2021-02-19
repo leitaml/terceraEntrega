@@ -23,7 +23,7 @@ export default {
     Footer,
     Navbar,
     Formulario
-  }
+  },
 
 }
 </script>

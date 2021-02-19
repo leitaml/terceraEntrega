@@ -12,61 +12,26 @@
         </div>
   </div>
 
-  <div class="seccion-tabla">
-      <h1 class="titulo-personajes"> PERSONAJES DEL JUEGO</h1>
-
-     <div class="container">
-       <div class="row">
-         <div class="col-6 col-md-6">
-
-              <div class="zona-boton">
-                 <label class="switch">
-                    <input id="checkbox-filtro" type="checkbox">
-                    <span class="slider round"></span>
-                 </label>
-                      <p class="parrafo-filtro">Activar / Desactivar FILTRO</p>
-              </div>
-
-         </div>
-           <div class="col-6 col-md-6">
-             <div class="zona-buscar" id="buscador-filtro">
-             
-             <input class="form-control input-filtro " id="inputTabla" type="search" placeholder="Filtrar Busqueda" aria-label="Search">
-                 
-                 
-            </div>
-
-          </div>
-      </div>
-    </div>
-    </div>
-
+ 
 
     <!-- Componente Tabla -->
     <Tabla />
 
-
     <!--Componente  Modal AGREGAR -->
     <ModalAgregar />
 
-
     <!-- Componenete MODAL EDITAR -->
-    <ModalEditar />
-
+    <ModalEditar  />
 
     <!-- Componente MODAL ELIMINAR -->
     <ModalEliminar />
 
-
     <!-- Componente FOOTER  -->
     <Footer />
+    
 
-
-
-</div>
+  </div>
 </template>
-
-
 
 <script>
 
@@ -85,11 +50,7 @@ export default {
     ModalEditar,
     ModalEliminar,
     Tabla,
-    
   },
-  
-   
-
 }
   
 </script>
@@ -100,26 +61,17 @@ export default {
     width: 100%;
     height: 591.3px;
     display: flex;
-
-}
-
-.seccion-tabla{
-    width: 100%;
-    height: 250px;
 }
 
 
 .imagen-trans{
-
         display: flex;
         position: absolute;
         width: 100%;
         height: 90%;
         top: 100px;
         left: 0;
-        
 }
-
     
 .titulo-personajes{
     text-align: center;
@@ -128,7 +80,6 @@ export default {
     padding: 25px;
 }
 
-
 .td-Head{
     background-color: #f4f4f4;
     border: solid 1px black;
@@ -136,7 +87,6 @@ export default {
     font-size: 18px;
     font-weight: bold;   
 }
- 
 
 .td-Elementos{
    border: 1px solid black;
@@ -153,68 +103,17 @@ export default {
     margin-bottom: 5px;
 }
 
-.btn-agregar{
- 
-    margin-left: 580px;
-    margin-top: 40px;   
-    margin-bottom: 500px;
-}
-
-.tr-Elementos{
-    border: 1px solid black;
- }
-
-
- .input-filtro{
-   width: 200px;
- }
-
-
- .zona-boton{
-width: 100%;
-height: 100px;
-
- }
- .zona-buscar{
-    width: 100%;
-    height: 100px;
-    margin-top: 35px;
-  
-    
- }
- .parrafo-filtro{
-     font: bold;
-     font-size: 15px;
-     font-weight: 500;
-     margin-left: 65px;
-     
- }
-
-
-
- .filtro{
-     width: 100%;
-     padding-bottom: 25px;
-     
- }
- 
-    
 
 
  
 /* progress bar */
-
-.btn-spinner{
+.btn-spinner {
     display: flex;
     margin-bottom: px;
     margin-left: 573px;
-    
-  
 }
 
-
 .hidden{
-
     visibility: hidden;
 }
 
@@ -230,8 +129,6 @@ height: 100px;
     display: block;
 }
 
-
-
 /* Toggle Bar */
 
 .switch {
@@ -241,66 +138,61 @@ height: 100px;
     height: 34px;
     margin-top: 28px;
     margin-left: 127px;
-  }
+}
   
-  .switch input { 
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
   
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
 
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
 
+input:checked + .slider {
+  background-color: #2196F3;
+}
 
-    /*  @ MEDIA  */
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
 
-      
-        
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*  @ MEDIA  */
 
 </style>

@@ -1,13 +1,24 @@
 import Vue from 'vue'
+import Axios from 'axios';
+import VueAxios from 'vue-axios';
+
+Vue.use(VueAxios, Axios);
+
 import App from './App.vue'
+let Bootstrap = require("bootstrap")
 import router from './router'
 import store from './store'
 
-import bootstrapVue from "bootstrap-vue"
-import "popper.js"
-import jQuery from "jquery"
 
-window.$ = window.jQuery = require("jquery")
+import bootstrapVue from "bootstrap-vue"
+
+
+import "popper.js"
+import JQuery from 'jquery'
+window.$ = JQuery
+
+
+
 
 Vue.use(bootstrapVue)
 
