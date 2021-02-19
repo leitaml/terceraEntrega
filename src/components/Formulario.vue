@@ -5,8 +5,6 @@
     <div class="row">
       <div class="col-sm-4">
         <div class="form-left">
-
-
           <h5>
             Iniciar sesion
           </h5>
@@ -33,7 +31,6 @@
               @click.prevent="login"
                >Entrar</button>
           </form>
-
         </div>
       </div>
 
@@ -41,61 +38,44 @@
         <div class="form-center">
 
         </div>
-
       </div>
 
       <div class="col-sm-6">
         <div class="form-right">
-
-
           <h5>
             Regístrate
           </h5>
 
           <img class="usuario2" src="../assets/usuario1.png" alt="logo-register">
 
-
           <form class="form-principal">
-
             <div class="form-group ">
-
               <label for="validationCustom01">Nombre :</label>
               <input type="text" class="form-control" id="validationCustom01">
-
             </div>
 
             <div class="form-group ">
-
               <label for="validationCustom02">Apellido :</label>
               <input type="text" class="form-control" id="validationCustom02">
-
             </div>
 
             <div class="form-group ">
-
               <label for="validationCustom03">Nombre de usuario :</label>
               <input type="text" class="form-control" id="validationCustom03">
-
             </div>
 
             <div class="form-group ">
-
               <label for="exampleInputEmail1">Email :</label>
               <input type="email" class="form-control" id="exampleInputEmail1">
-
             </div>
 
             <div class="form-group ">
-
               <label for="exampleInputPassword1">Contraseña :</label>
               <input type="password" class="form-control" id="exampleInputPassword1">
-
             </div>
 
             <button type="submit" class="btn btn-success">Submit</button>
           </form>
-
-
         </div>
       </div>
     </div>
@@ -147,7 +127,6 @@ export default {
 
 <style>
 
-
 .form-left , .form-right{
    display: flex;
    flex-direction: column;
@@ -161,21 +140,17 @@ export default {
    background-repeat: no-repeat;
    text-align: center;
    border-radius: 5%;
-    
 }
-
 
 .form-right{
    
     height: 600px;
     background-image: url(../assets/fondo-contacto2.jpg);
-    
 }
 
 h5{
     font-size: 15px;
     text-align: center;
-    
 }
 
 
@@ -190,6 +165,5 @@ h5{
 .form-principal{
     margin-bottom: 20px;
 }
-
 
 </style>

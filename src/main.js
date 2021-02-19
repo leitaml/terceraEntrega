@@ -12,10 +12,10 @@ import store from './store'
 
 import bootstrapVue from "bootstrap-vue"
 
+
 import "popper.js"
 import JQuery from 'jquery'
 window.$ = JQuery
-
 
 
 

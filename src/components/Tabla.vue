@@ -45,7 +45,6 @@
                <th scope="col">Caracteristica</th>
                <th scope="col">Habilidad</th>
                <th scope="col">Accion</th>
-               
             </tr>
         </thead>
        <tbody>

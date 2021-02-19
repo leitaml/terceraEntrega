@@ -28,8 +28,6 @@
   
 </template>
 
-
-
 <script>
 
 import BtnModalAgregar from "../components/BtnModalAgregar"
@@ -51,5 +49,4 @@ export default {
 .input-modal{
   margin-bottom: 15px;
 }
-
 </style>
