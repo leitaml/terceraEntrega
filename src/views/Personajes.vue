@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
 <div> 
 
    <!-- Componente NABVAR -->
@@ -14,41 +13,6 @@
   </div>
 
  
-=======
-  <div> 
-    <!-- Componente NABVAR -->
-    <Navbar />
-    
-    <!-- Seccion Central TABLA -->
-
-    <div class="section-personajes">
-          <div>
-            <img class="imagen-trans" src="../assets/fondo-personajes2.jpg" alt="foto fondo">
-          </div>
-    </div>
-
-    <div class="seccion-tabla">
-        <h1 class="titulo-personajes"> PERSONAJES DEL JUEGO</h1>
-      <div class="container">
-        <div class="row">
-          <div class="col-6 col-md-6">
-              <div class="zona-boton">
-                  <label class="switch">
-                    <input id="checkbox-filtro" type="checkbox">
-                    <span class="slider round"></span>
-                  </label>
-                      <p class="parrafo-filtro">Activar / Desactivar FILTRO</p>
-              </div>
-          </div>
-            <div class="col-6 col-md-6">
-              <div class="zona-buscar" id="buscador-filtro">
-                <input class="form-control input-filtro " id="inputTabla" type="search" placeholder="Filtrar Busqueda" aria-label="Search">
-              </div>
-            </div>
-        </div>
-      </div>
-    </div>
->>>>>>> 4cc6afaa1eefc410cfc3ffd7d125341f4f6d65d4
 
     <!-- Componente Tabla -->
     <Tabla />
@@ -139,48 +103,8 @@ export default {
     margin-bottom: 5px;
 }
 
-<<<<<<< HEAD
 
 
-=======
-.btn-agregar{
- 
-    margin-left: 580px;
-    margin-top: 40px;   
-    margin-bottom: 500px;
-}
-
-.tr-Elementos{
-    border: 1px solid black;
-}
-
-.input-filtro{
-  width: 200px;
-}
-
-.zona-boton{
-  width: 100%;
-  height: 100px;
-}
-
-.zona-buscar{
-  width: 100%;
-  height: 100px;
-  margin-top: 35px;
-}
-
-.parrafo-filtro{
-    font: bold;
-    font-size: 15px;
-    font-weight: 500;
-    margin-left: 65px;
-}
-
-.filtro{
-    width: 100%;
-    padding-bottom: 25px;
-}
->>>>>>> 4cc6afaa1eefc410cfc3ffd7d125341f4f6d65d4
  
 /* progress bar */
 .btn-spinner {
