@@ -2,7 +2,7 @@
 
 <div>
   <BtnModalAgregar />
-  <b-modal id="modal-lg" title="AGREGAR PERSONAJE">
+  <!-- <b-modal id="modal-lg" title="AGREGAR PERSONAJE">
      <div class="modal-body">
             <div>
               <input id="nombreModal" type="text" class="form-control input-modal" placeholder="NOMBRE">
@@ -16,7 +16,7 @@
               DESEA CONTINUAR?
             </h4>
       </div>
-  </b-modal>
+  </b-modal> -->
 </div>
   
 </template>

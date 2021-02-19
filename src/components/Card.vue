@@ -28,7 +28,7 @@
             <li class="list-group-item"> - Un pack de 3 litografías mostrando algunos de los artes conceptuales más
               impresionantes creados para el juego. </li>
           </ul>
-          <div class="card-body ">
+          <div class="card-body">
             <a href="https://store.ubi.com/es/assassin-s-creed-valhalla-collector-edition/5e84b6f95cdf9a21c0b4e746.html"
               class="card-link btn btn-success " target="_blank">COMPRAR</a>
           </div>
@@ -58,7 +58,6 @@ export default {
     justify-content: center ;
     align-items: center;
     opacity: 0.9;
-
 }
 
 .card-body{
