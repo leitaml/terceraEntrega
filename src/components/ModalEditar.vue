@@ -56,7 +56,7 @@ body , html {
   right: 0;
   z-index: 100;
   background: rgba(0, 0, 0, 0.4);
-  overflow: hidden;
+  
 }
 
 .modal{

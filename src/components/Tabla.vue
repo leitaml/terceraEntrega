@@ -87,7 +87,7 @@ export default {
      
     }
   },
-     mounted : function() {
+     created () {
        let consumirApi = "https://602367ff6bf3e6001766b0c8.mockapi.io/api/v1/users"
        axios.get(consumirApi).then (data => {
          console.log(data)

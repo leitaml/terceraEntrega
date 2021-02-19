@@ -4,7 +4,7 @@
   
    <BtnModalAgregar />
    
-  <b-modal id="modal-lg" title="AGREGAR PERSONAJE">
+ <!--  <b-modal id="modal-lg" title="AGREGAR PERSONAJE">
 
      <div class="modal-body">
             <div>
@@ -19,9 +19,10 @@
               DESEA CONTINUAR?
             </h4>
           </div>
+          
         
 
-  </b-modal>
+  </b-modal> -->
   
 </div>
   
