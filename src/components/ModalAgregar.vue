@@ -1,9 +1,7 @@
 <template>
 
 <div>
-  
-   <BtnModalAgregar />
-   
+  <BtnModalAgregar />
  <!--  <b-modal id="modal-lg" title="AGREGAR PERSONAJE">
 
      <div class="modal-body">
@@ -18,12 +16,8 @@
               SE ESTA POR AGREGAR UN NUEVO PERSONAJE!
               DESEA CONTINUAR?
             </h4>
-          </div>
-          
-        
-
+      </div>
   </b-modal> -->
-  
 </div>
   
 </template>
