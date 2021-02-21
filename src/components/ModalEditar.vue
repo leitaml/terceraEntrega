@@ -1,79 +1,54 @@
- <template>
- 
+<template>
+  <div>
+    <b-button id="editar" @click="showModal">Editar</b-button>
+    
 
-      <div>
-    <transition name="fade">
-      <div class="modal-overlay" v-if="showModal"></div>
-    </transition>
-
-    <transition name="fade">
-      <div class="modal" v-if="showModal">
-        <h1>titulo</h1>
-        <p>parrafo</p>
-        <button class="btn btn-danger" @click="showModal= false">Cerrar</button>
+    <b-modal size="lg" ref="my-modal" hide-footer title="INGRESE SUS NUEVOS DATOS :">
+      <div class="d-block text-center modal-editar">
+            <input id="editarNombre" type="text" class="form-control input-modal" placeholder="Nombre">
+            <input id="editarOrigen" type="text" class="form-control input-modal" placeholder="Origen">
+            <input id="editarEdad" type="text" class="form-control input-modal" placeholder="Edad">
+            <input id="editarCaracteristica" type="text" class="form-control input-modal" placeholder="Caracteristica">
+            <input id="editarHabilidad" type="text" class="form-control input-modal" placeholder="Habilidad">
+             <h4 class="titulo-modal">
+                ESTA POR EDITAR EL PERSONAJE!
+                DESEA GUARDARLO?
+            </h4>
       </div>
-    </transition>
-
-    <button class="btn btn-primary btn-editar" @click="showModal = true">
-      Abrir Modal
-    </button>
+       <b-button class="mt-2" variant="outline-primary" block >Guardar</b-button>
+      <b-button class="mt-3" variant="outline-danger" block @click="hideModal">Cancelar</b-button>
+      
+     
+    </b-modal>
   </div>
-
-
 </template>
 
-
-
 <script>
-export default {
-
-  
-  data() {
-    return {
-      showModal: false,
+  export default {
+    methods: {
+      showModal() {
+        this.$refs['my-modal'].show()
+      },
+      hideModal() {
+        this.$refs['my-modal'].hide()
+      },
+     
     }
   }
-  
-}
 </script>
 
 <style>
-
-
-
-body , html {
-  width: 100%;
-  height: 100%;
-  
-  
+.input-modal{
+  margin-bottom: 15px;
 }
 
-.modal-overlay{
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 100;
-  background: rgba(0, 0, 0, 0.4);
-  
+.titulo-modal{
+  margin-bottom: 30px;
+  margin-top: 10px;
+  font-size: 20px;
 }
 
-.modal{
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50% , -50%);
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
-  z-index: 101;
-}
-
-
-
-</style>>
+</style>
 
 
 

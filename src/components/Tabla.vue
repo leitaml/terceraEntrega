@@ -44,7 +44,7 @@
          <td>{{ item.Edad }}</td>
          <td>{{ item.Caracteristica }}</td>
          <td>{{ item.Habilidad}}</td> 
-         <td> <button class="btn btn-primary btn-sm btn-editar" > Editar</button> 
+         <td> <button class="btn btn-primary btn-sm btn-editar"  > Editar</button> 
               <button class="btn btn-danger btn-sm btn-eliminar" @click="eliminar(index , item)"> Eliminar</button>
          </td> 
       </tr>
@@ -97,27 +97,6 @@ computed: {
    }
 }
 
-/*  methods: {
-  async consumirApi() {
-          try {
-            const data = await fetch("https://602367ff6bf3e6001766b0c8.mockapi.io/api/v1/users")
-            const personajes = await data.json()
-            console.log(personajes)
-            this.arrayPersonajes = personajes
-          } catch (error) {
-            console.log(error)
-          }
-        },
-      }, 
-    }
-  },  */
-
-/* CICLO DE VIDA 
-created() {
-      this.consumirApi() 
-      }
-    }
-  } */
 }
  
 </script>

@@ -1,46 +1,64 @@
 <template>
 
-<div>
-  <BtnModalAgregar />
- <!--  <b-modal id="modal-lg" title="AGREGAR PERSONAJE">
-
-     <div class="modal-body">
-            <div>
-              <input id="nombreModal" type="text" class="form-control input-modal" placeholder="NOMBRE">
-              <input id="origenModal" type="text" class="form-control input-modal" placeholder="ORIGEN">
-              <input id="edadModal" type="text" class="form-control input-modal" placeholder="EDAD">
-              <input id="caracteristicaModal" type="text" class="form-control input-modal" placeholder="CARACTERISTICA">
-              <input id="habilidadModal" type="text" class="form-control input-modal" placeholder="HABILIDAD">
-            </div>
-            <h4 class="titulo-modal">
-              SE ESTA POR AGREGAR UN NUEVO PERSONAJE!
-              DESEA CONTINUAR?
+  <div>
+    <!-- a este componente padre le tuve que hacer un emit para que se comunique con su hijo -->
+    <BtnModalAgregar  @accionAgregar="showModal" />
+  
+    <b-modal size="lg" ref="my-modal" hide-footer title="AGREGAR PERSONAJE :">
+      <div class="d-block text-center modal-editar">
+            <input id="agregarNombre" type="text" class="form-control input-modal" placeholder="Nombre">
+            <input id="agregarOrigen" type="text" class="form-control input-modal" placeholder="Origen">
+            <input id="agregarEdad" type="text" class="form-control input-modal" placeholder="Edad">
+            <input id="agregarCaracteristica" type="text" class="form-control input-modal" placeholder="Caracteristica">
+            <input id="agregarHabilidad" type="text" class="form-control input-modal" placeholder="Habilidad">
+             <h4 class="titulo-modal">
+                ESTA POR AGREGAR UN NUEVO PERSONAJE!
+                DESEA GUARDARLO?
             </h4>
       </div>
-  </b-modal> -->
-</div>
+       <b-button class="mt-2" variant="outline-primary" block >Agregar</b-button>
+      <b-button class="mt-3" variant="outline-danger" block @click="hideModal">Cancelar</b-button>
+      
+     
+    </b-modal>
+  </div>
+  
   
 </template>
 
 <script>
 
-import BtnModalAgregar from "../components/BtnModalAgregar"
+import BtnModalAgregar from "./BtnModalAgregar"
 
 export default {
 
   components: {
     BtnModalAgregar,
+  },
+
+    methods: {
+      showModal() {
+        this.$refs['my-modal'].show()
+      },
+      hideModal() {
+        this.$refs['my-modal'].hide()
+      },
+    
+    }
   }
-}
+
  
 </script>
 
 <style>
-.titulo-modal{
-  font-size: 15px;
-}
-
 .input-modal{
   margin-bottom: 15px;
 }
+
+.titulo-modal{
+  margin-bottom: 30px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
 </style>
