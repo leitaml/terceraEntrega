@@ -35,10 +35,10 @@ export default {
 .footer-component{
     width: 100%;
     height: 120px;
+    margin-top: 70px;
 }
 
 .footer-left , .footer-right{
-
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -77,31 +77,30 @@ export default {
 }
 
 /* COLORES  */
-    .footer-component{
-        background-color: black;
+.footer-component{
+    background-color: black;
 
-    }
-    .footer-component div h4{
-        color: white;
-    }
+}
+.footer-component div h4{
+    color: white;
+}
 
-    /*  @ MEDIA  */
-    @media  screen and (max-width: 490px){
-        .footer-component div  h4{
-            display: none;
-           
-        }
+/*  @ MEDIA  */
+@media  screen and (max-width: 490px){
+    .footer-component div  h4{
+        display: none;
     }
+}
 
-    @media screen and (max-width: 768px) { 
-      .footer-component div  h4{
-            font-size: 18px;
-        }
+@media screen and (max-width: 768px) { 
+    .footer-component div  h4{
+        font-size: 18px;
     }
+}
 
-    @media  screen and (max-width: 1200px) { 
-        .logo-copyright{
-            width: 20%;
-        }
-     }
+@media  screen and (max-width: 1200px) { 
+    .logo-copyright{
+        width: 20%;
+    }
+}
 </style>

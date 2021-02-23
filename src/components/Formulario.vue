@@ -83,45 +83,35 @@
   </div>
 </template>
 
-
-
 <script>
 
 import axios from "axios"
 export default {
-
   
-  data: function() {
+data: function() {
     return {
       usuario: "",
       password: "",
     }
-  },
-  methods: {
+},
+methods: {
     login() {
-     let datos = {
-       "usuario" : this.usuario,
-       "password" : this.password
-     };
-     axios.post("https://602367ff6bf3e6001766b0c8.mockapi.io/api/v1/users" , datos)
-     .then(data => {
-     console.log(data)
-     if(data.data.usuario == "juan" && data.data.password == 123456){
-       console.log("Bienvenido Juan")
-     }else {
-       console.log("Usuario incorrecto")
-     }
-      
-     })
-
+      let datos = {
+        "usuario" : this.usuario,
+        "password" : this.password
+      };
+      axios.post("https://602367ff6bf3e6001766b0c8.mockapi.io/api/v1/users" , datos)
+          .then(data => {
+          console.log(data)
+          if(data.data.usuario == "juan" && data.data.password == 123456){
+            console.log("Bienvenido Juan")
+          }else {
+            console.log("Usuario incorrecto")
+          }
+      })
+    }
   }
 }
-}
-
-  
-
-
-
 
 </script>
 

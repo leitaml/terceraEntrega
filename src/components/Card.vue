@@ -4,7 +4,7 @@
   <div class="row">
     <div class=" col-sm-12 col-md-12 ">
       <div class="section-novedades">
-        <div class="card" style="width: 65%; ">
+        <div class="card" style="max-width: 65%;">
           <img src="../assets/fondo-coleccionista.jpg" class="card-img-top" alt="foto-coleccionista">
 
           <div class="card-body">
@@ -46,11 +46,15 @@ export default {
 </script>
 
 <style>
+.card {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
 
 .section-novedades{
     display: flex;
     width: 100%;
-    height: 900px;
+    height: 100%;
     background-image: url(../assets/edicol1.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
