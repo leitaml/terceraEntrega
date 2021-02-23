@@ -16,7 +16,7 @@
                 DESEA GUARDARLO?
             </h4>
       </div>
-       <b-button class="mt-2" variant="outline-primary" block >Agregar</b-button>
+       <b-button class="mt-2" variant="outline-primary" block @click="toggleModal" >Agregar</b-button>
       <b-button class="mt-3" variant="outline-danger" block @click="hideModal">Cancelar</b-button>
       
      
@@ -42,6 +42,12 @@ export default {
       },
       hideModal() {
         this.$refs['my-modal'].hide()
+      },
+      toggleModal() {
+        
+        this.$refs['my-modal'].toggle()
+        console.log("se agrego")
+
       },
     
     }
