@@ -1,52 +1,30 @@
 <template>
-  <div> 
-    <!-- Componente NABVAR -->
-    <Navbar />
-    
-    <!-- Seccion Central TABLA -->
+<div> 
 
-    <div class="section-personajes">
-          <div>
-            <img class="imagen-trans" src="../assets/fondo-personajes2.jpg" alt="foto fondo">
-          </div>
-    </div>
-
-    <div class="seccion-tabla">
-        <h1 class="titulo-personajes"> PERSONAJES DEL JUEGO</h1>
-      <div class="container">
-        <div class="row">
-          <div class="col-6 col-md-6">
-              <div class="zona-boton">
-                  <label class="switch">
-                    <input id="checkbox-filtro" type="checkbox">
-                    <span class="slider round"></span>
-                  </label>
-                      <p class="parrafo-filtro">Activar / Desactivar FILTRO</p>
-              </div>
-          </div>
-            <div class="col-6 col-md-6">
-              <div class="zona-buscar" id="buscador-filtro">
-                <input class="form-control input-filtro " id="inputTabla" type="search" placeholder="Filtrar Busqueda" aria-label="Search">
-              </div>
-            </div>
+   <!-- Componente NABVAR -->
+   <Navbar />
+  
+  <!-- Seccion Central TABLA -->
+  <div class="section-personajes">
+         <div>
+          <img class="imagen-trans" src="../assets/fondo-personajes2.jpg" alt="foto fondo">
         </div>
-      </div>
-    </div>
+  </div>
 
-    <!-- Componente Tabla -->
-    <Tabla />
+  <!-- Componente Tabla -->
+  <Tabla />
+  
+  <!--Componente  Modal AGREGAR -->
+  <!-- <ModalAgregar /> -->
 
-    <!--Componente  Modal AGREGAR -->
-    <ModalAgregar />
+  <!-- Componenete MODAL EDITAR -->
+  <!-- <ModalEditar  /> -->
 
-    <!-- Componenete MODAL EDITAR -->
-    <ModalEditar />
+  <!-- Componente MODAL ELIMINAR -->
+  <!-- <ModalEliminar /> -->
 
-    <!-- Componente MODAL ELIMINAR -->
-    <ModalEliminar />
-
-    <!-- Componente FOOTER  -->
-    <Footer />
+  <!-- Componente FOOTER  -->
+  <Footer />
 
   </div>
 </template>
@@ -55,18 +33,18 @@
 
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
-import ModalAgregar from "../components/ModalAgregar"
-import ModalEditar from "../components/ModalEditar"
-import ModalEliminar from "../components/ModalEliminar"
+// import ModalAgregar from "../components/ModalAgregar"
+// import ModalEditar from "../components/ModalEditar"
+// import ModalEliminar from "../components/ModalEliminar"
 import Tabla from "../components/Tabla"
 
 export default {
   components: {
     Footer,
     Navbar,
-    ModalAgregar,
-    ModalEditar,
-    ModalEliminar,
+    // ModalAgregar,
+    // ModalEditar,
+    // ModalEliminar,
     Tabla,
   },
 }
@@ -77,22 +55,15 @@ export default {
        
 .section-personajes {
     width: 100%;
-    height: 591.3px;
+    max-height: 50%;
     display: flex;
 }
 
-.seccion-tabla{
-    width: 100%;
-    height: 250px;
-}
-
-.imagen-trans{
-        display: flex;
-        position: absolute;
-        width: 100%;
-        height: 90%;
-        top: 100px;
-        left: 0;
+.imagen-trans {
+    display: flex;
+    /* position: absolute; */
+    top: 100px;
+    left: 0;
 }
     
 .titulo-personajes{
@@ -124,44 +95,6 @@ export default {
     padding: 1px;
     margin-bottom: 5px;
 }
-
-.btn-agregar{
- 
-    margin-left: 580px;
-    margin-top: 40px;   
-    margin-bottom: 500px;
-}
-
-.tr-Elementos{
-    border: 1px solid black;
-}
-
-.input-filtro{
-  width: 200px;
-}
-
-.zona-boton{
-  width: 100%;
-  height: 100px;
-}
-
-.zona-buscar{
-  width: 100%;
-  height: 100px;
-  margin-top: 35px;
-}
-
-.parrafo-filtro{
-    font: bold;
-    font-size: 15px;
-    font-weight: 500;
-    margin-left: 65px;
-}
-
-.filtro{
-    width: 100%;
-    padding-bottom: 25px;
-}
  
 /* progress bar */
 .btn-spinner {
@@ -187,7 +120,6 @@ export default {
 }
 
 /* Toggle Bar */
-
 .switch {
     position: relative;
     display: inline-block;

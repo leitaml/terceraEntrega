@@ -9,7 +9,6 @@
 
 <script>
 
-window.$ = window.jQuery = require("jquery");
 export default {
   
 }
