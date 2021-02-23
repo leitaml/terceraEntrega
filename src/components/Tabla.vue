@@ -10,19 +10,20 @@
         <b-btn type="submit" variant="danger" @click="deletePersonaje">Delete</b-btn> 
       </div>
       <div class="float-right pr-2 pt-4">
-        <b-btn  type="submit" variant="primary"  style="padding-left: 10px" @click="hideModal">Cancel</b-btn>
+        <b-btn  type="submit" variant="primary"  style="padding-left: 10px" @click="hideModalDelete">Cancel</b-btn>
       </div>
     </b-modal>
+
 
     <!-- MODAL AGREGAR -->
     <b-modal ref="myModalAgregar" id="modal-lg" title="AGREGAR PERSONAJE" centered hide-footer hide-header>
       <div class="modal-body">
             <div>
-              <input id="nombreModal" type="text" class="form-control input-modal" placeholder="NOMBRE">
-              <input id="origenModal" type="text" class="form-control input-modal" placeholder="ORIGEN">
-              <input id="edadModal" type="text" class="form-control input-modal" placeholder="EDAD">
-              <input id="caracteristicaModal" type="text" class="form-control input-modal" placeholder="CARACTERISTICA">
-              <input id="habilidadModal" type="text" class="form-control input-modal" placeholder="HABILIDAD">
+              <input id="nombreModal" type="text" class="form-control input-modal" placeholder="NOMBRE" v-model="nombre" > 
+              <input id="origenModal" type="text" class="form-control input-modal" placeholder="ORIGEN" v-model="origen"> 
+              <input id="edadModal" type="text" class="form-control input-modal" placeholder="EDAD"  v-model="edad">
+              <input id="caracteristicaModal" type="text" class="form-control input-modal" placeholder="CARACTERISTICA" v-model="caracteristica">
+              <input id="habilidadModal" type="text" class="form-control input-modal" placeholder="HABILIDAD" v-model="habilidad">
             </div>
             <h4 class="titulo-modal">
               SE ESTA POR AGREGAR UN NUEVO PERSONAJE!
@@ -32,12 +33,33 @@
               <b-btn type="submit" variant="danger" @click="agregarPersonaje">Agregar</b-btn> 
             </div>
             <div class="float-right pr-2 pt-4">
-              <b-btn  type="submit" variant="primary"  style="padding-left: 10px" @click="hideModal">Cancel</b-btn>
+              <b-btn  type="submit" variant="primary"  style="padding-left: 10px" @click="hideModalAgregar">Cancel</b-btn>
             </div>
         </div>
     </b-modal>
 
     <!-- MODAL EDITAR -->
+     <b-modal ref="myModalEditar" id="modal-lg" title="EDITAR PERSONAJE" centered hide-footer hide-header>
+      <div class="modal-body">
+            <div>
+              <input id="editarNombre" type="text" class="form-control input-modal" placeholder="NOMBRE">
+              <input id="editarOrigen" type="text" class="form-control input-modal" placeholder="ORIGEN" >
+              <input id="editarEdad" type="text" class="form-control input-modal" placeholder="EDAD">
+              <input id="editarCaracteristica" type="text" class="form-control input-modal" placeholder="CARACTERISTICA" >
+              <input id="editarHabilidad" type="text" class="form-control input-modal" placeholder="HABILIDAD">
+            </div>
+            <h4 class="titulo-modal">
+              SE ESTA POR EDITAR UN NUEVO PERSONAJE!
+              DESEA CONTINUAR?
+            </h4>
+            <div class="float-right pt-4">
+              <b-btn type="submit" variant="danger" @click="editarPersonaje">Editar</b-btn> 
+            </div>
+            <div class="float-right pr-2 pt-4">
+              <b-btn  type="submit" variant="primary"  style="padding-left: 10px" @click="hideModalEditar">Cancel</b-btn>
+            </div>
+        </div>
+    </b-modal>
 
 
     <!-- SECCION FILTRO -->
@@ -88,36 +110,41 @@
               <td>{{ item.Habilidad}}</td> 
               
               <td>  
-                    <b-button variant="primary"> Editar</b-button> 
+                    <b-button variant="primary" @click="showModalEditar(item.id)"> Editar</b-button> 
                     <b-button variant="danger" @click="showModalDelete(item.id)">Eliminar</b-button>
               </td>
             </tr>
         </tbody>
       </table>
 
-    <!-- MODAL AGREGAR -->
-    <!-- <ModalAgregar @abrirModalAgregar="addCharacter"/> -->
-      <div class="button-center">
+       <!-- BTN MODAL AGREGAR -->
+    <div class="button-center">
         <b-button class="btn-agregar btn btn-success" @click="showModalAgregar()">Agregar Personaje</b-button>
       </div>
+
+
     </div>
  </div>
 </template>
 
 <script>
 import axios from "axios"
-// import ModalAgregar from './ModalAgregar'
 
 export default {
-  components: {
-    // ModalAgregar,
-  },
 
 data() {
     return {
       arrayPersonajes: [],
-      personajesTabla: [],
-      nuevoArray: ""
+      nuevoArray: "",
+      nombre: "",
+      origen: "",
+      edad: "",
+      caracteristica: "",
+      habilidad: "",
+      nombreEditar: "",
+      edadEditar: "" ,
+      
+
     }
   },
 created () {
@@ -127,25 +154,42 @@ created () {
     this.arrayPersonajes = data.data
   })
 },
-methods : {
+methods :
+        //showMODals
+{
   showModalDelete(id) {
     this.id = id
     this.$refs['myModalDelete'].show()
   },
 
-  // addCharacter () {
-  //   console.log('Agregado');
-  // },
+ showModalEditar(id) {
+   
+    this.$refs['myModalEditar'].show()
+   
+                        console.log(this.id)
+                        
+                        this.nombreEditar = this.arrayPersonajes.nombre;
+                        this.edadEditar = this.arrayPersonajes[id].edad;
+ },
 
   showModalAgregar() {
     this.$refs['myModalAgregar'].show()
   },
 
-  hideModal() {
-    // this.$root.$emit('bv::hide::modal','myModal')
+    // hideModals
+  hideModalDelete() {
     this.$refs['myModalDelete'].hide()
-    this.$refs['myModalAgregar'].hide()
   },
+
+  hideModalEditar() {
+      this.$refs['myModalEditar'].hide()
+  },
+  
+  hideModalAgregar() {
+     this.$refs['myModalAgregar'].hide()
+    
+  },
+  
 
   deletePersonaje () {
       // axios.delete(`http://localhost:5000/api/jobs/${this.ID}`)
@@ -166,9 +210,40 @@ methods : {
       this.arrayPersonajes = this.arrayPersonajes.filter(x => x.id !== this.id);
       this.$refs['myModalDelete'].hide()
   },
-  agregarPersonaje () {
-      // this.arrayPersonajes = this.arrayPersonajes.push(x => );
-  },
+   agregarPersonaje() {
+            
+                this.$refs['myModalAgregar'].hide()
+                console.log(this.nombre)
+                console.log(this.origen)
+                console.log(this.edad)
+                console.log(this.caracteristica)
+                console.log(this.habilidad)
+                this.arrayPersonajes.push({
+    
+                    nombre: this.nombre,
+                    origen: this.origen,
+                    edad: this.edad,
+                    caracteristica: this.caracteristica,
+                    habilidad: this.habilidad,
+                    });
+               
+                    this.nombre = '';
+                    this.origen= '';
+                    this.edad = '';
+                    this.caracteristica = '';
+                    this.habilidad = '';
+
+            },
+
+ 
+    editarPersonaje() {
+                        
+          this.$refs['myModalEditar'].hide()
+                    },
+     
+      
+  
+     
 
   limpiarInput() {
       this.nuevoArray = ""
@@ -225,10 +300,10 @@ methods : {
    padding-bottom: 25px;
 }
 
-/* .seccion-tabla {
+.seccion-tabla {
     max-width: 100%;
     height: 250px;
-} */
+} 
 
 .btn-editar {
   margin-right: 15px;
