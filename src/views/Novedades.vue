@@ -2,7 +2,7 @@
   
   <div>
   <!--   Componente NAVBAR --> 
-     <Navbar />
+  <Navbar />
 
   <!--   SECTION CENTRAL  -->
   <div class="container">

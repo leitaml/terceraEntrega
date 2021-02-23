@@ -66,5 +66,9 @@ export default {
 </script>
 
 <style>
-
+  @media screen and (min-width: 768px){
+    .container, .container-sm, .container-md {
+        max-width: 75%;
+    }
+  }
 </style>

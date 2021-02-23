@@ -1,12 +1,9 @@
 <template>
   <div>
+  <!-- Componente NAVBAR --> 
+  <Navbar />
 
-<!-- Componente NAVBAR --> 
-   <Navbar />
-  
-
-    <!-- header -->
-   
+  <!-- header -->
   <header class="header-home">
     <div class="container">
       <div class="row">
@@ -112,7 +109,7 @@ import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import Carousel from '../components/Carousel.vue'
 
-window.$ = window.jQuery = require("jquery");
+// window.$ = window.jQuery = require("jquery");
 
 export default {
   name: 'Home',
@@ -126,13 +123,14 @@ export default {
 </script>
 
 <style>
-
 .header-home{
     background-image: url(../assets/image-section-2.jpg);
     width: 100%;
     height: 700px;
     opacity: 0.9;
     overflow: hidden;
+    /* background-attachment: fixed; */
+    background-size: cover;
 }
 
 .header-home div h1{
@@ -146,7 +144,6 @@ export default {
 }
 
 /* Section */
-
 section{
     width: 100%;
     height: 1250px;
@@ -189,7 +186,6 @@ section div p{
 }
     
 /* Article */
-
 .div-center-page {
     display: flex;
     justify-content: center;
@@ -254,42 +250,42 @@ section div p{
     color: white;
  }
 
- .titulo-section{
-    color: #cff6cf;
- }
+.titulo-section{
+  color: #cff6cf;
+}
 
- /* Article */
- .titulo-article{
-    color: #393e46;
-    background-color: #f4f4f4;
+/* Article */
+.titulo-article{
+  color: #393e46;
+  background-color: #f4f4f4;
+}
+
+/*  @ MEDIA  */
+@media  screen and (max-width: 490px){
+  .titulo-article{
+      font-size: 25px;
   }
 
-  /*  @ MEDIA  */
-  @media  screen and (max-width: 490px){
+  section{
+      height: 1350px;
+  }
+
+  article{
+      height: 550px;
+  }
+}
+
+@media screen and (max-width: 768px) { 
+    .titulo-section{
+        font-size: 18px;
+    }
+
+    .parrafo-section{
+        font-size: 10px;
+    }
+
     .titulo-article{
-        font-size: 25px;
+        margin-top: 200px;
     }
-
-    section{
-        height: 1350px;
-    }
-
-    article{
-        height: 550px;
-    }
-  }
-
-  @media screen and (max-width: 768px) { 
-      .titulo-section{
-          font-size: 18px;
-      }
-
-      .parrafo-section{
-          font-size: 10px;
-      }
-
-      .titulo-article{
-          margin-top: 200px;
-      }
-  }
+}
 </style>

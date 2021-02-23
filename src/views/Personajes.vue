@@ -5,30 +5,26 @@
    <Navbar />
   
   <!-- Seccion Central TABLA -->
-
   <div class="section-personajes">
          <div>
           <img class="imagen-trans" src="../assets/fondo-personajes2.jpg" alt="foto fondo">
         </div>
   </div>
 
- 
+  <!-- Componente Tabla -->
+  <Tabla />
+  
+  <!--Componente  Modal AGREGAR -->
+  <!-- <ModalAgregar /> -->
 
-    <!-- Componente Tabla -->
-    <Tabla />
+  <!-- Componenete MODAL EDITAR -->
+  <!-- <ModalEditar  /> -->
 
-    <!--Componente  Modal AGREGAR -->
-    <ModalAgregar />
+  <!-- Componente MODAL ELIMINAR -->
+  <!-- <ModalEliminar /> -->
 
-    <!-- Componenete MODAL EDITAR -->
-    <ModalEditar  />
-
-    <!-- Componente MODAL ELIMINAR -->
-    <ModalEliminar />
-
-    <!-- Componente FOOTER  -->
-    <Footer />
-    
+  <!-- Componente FOOTER  -->
+  <Footer />
 
   </div>
 </template>
@@ -37,18 +33,18 @@
 
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
-import ModalAgregar from "../components/ModalAgregar"
-import ModalEditar from "../components/ModalEditar"
-import ModalEliminar from "../components/ModalEliminar"
+// import ModalAgregar from "../components/ModalAgregar"
+// import ModalEditar from "../components/ModalEditar"
+// import ModalEliminar from "../components/ModalEliminar"
 import Tabla from "../components/Tabla"
 
 export default {
   components: {
     Footer,
     Navbar,
-    ModalAgregar,
-    ModalEditar,
-    ModalEliminar,
+    // ModalAgregar,
+    // ModalEditar,
+    // ModalEliminar,
     Tabla,
   },
 }
@@ -59,18 +55,15 @@ export default {
        
 .section-personajes {
     width: 100%;
-    height: 591.3px;
+    max-height: 50%;
     display: flex;
 }
 
-
-.imagen-trans{
-        display: flex;
-        position: absolute;
-        width: 100%;
-        height: 90%;
-        top: 100px;
-        left: 0;
+.imagen-trans {
+    display: flex;
+    /* position: absolute; */
+    top: 100px;
+    left: 0;
 }
     
 .titulo-personajes{
@@ -102,9 +95,6 @@ export default {
     padding: 1px;
     margin-bottom: 5px;
 }
-
-
-
  
 /* progress bar */
 .btn-spinner {
@@ -130,7 +120,6 @@ export default {
 }
 
 /* Toggle Bar */
-
 .switch {
     position: relative;
     display: inline-block;
