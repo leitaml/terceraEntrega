@@ -18,11 +18,11 @@
     <b-modal ref="myModalAgregar" id="modal-lg" title="AGREGAR PERSONAJE" centered hide-footer hide-header>
       <div class="modal-body">
             <div>
-              <input id="nombreModal" type="text" class="form-control input-modal" placeholder="NOMBRE">
-              <input id="origenModal" type="text" class="form-control input-modal" placeholder="ORIGEN">
-              <input id="edadModal" type="text" class="form-control input-modal" placeholder="EDAD">
-              <input id="caracteristicaModal" type="text" class="form-control input-modal" placeholder="CARACTERISTICA">
-              <input id="habilidadModal" type="text" class="form-control input-modal" placeholder="HABILIDAD">
+              <input id="nombreModal" type="text" class="form-control input-modal" placeholder="NOMBRE" v-model="nombre">
+              <input id="origenModal" type="text" class="form-control input-modal" placeholder="ORIGEN" v-model="origen">
+              <input id="edadModal" type="text" class="form-control input-modal" placeholder="EDAD" v-model="edad">
+              <input id="caracteristicaModal" type="text" class="form-control input-modal" placeholder="CARACTERISTICA" v-model="caracteristica">
+              <input id="habilidadModal" type="text" class="form-control input-modal" placeholder="HABILIDAD" v-model="habilidad">
             </div>
             <h4 class="titulo-modal">
               SE ESTA POR AGREGAR UN NUEVO PERSONAJE!
@@ -38,7 +38,27 @@
     </b-modal>
 
     <!-- MODAL EDITAR -->
-
+     <b-modal ref="myModalEditar" id="modal-lg" title="EDITAR PERSONAJE" centered hide-footer hide-header>
+      <div class="modal-body">
+            <div>
+              <input id="editarNombre" type="text" class="form-control input-modal" placeholder="NOMBRE" v-model="nombre">
+              <input id="editarOrigen" type="text" class="form-control input-modal" placeholder="ORIGEN" v-model="origen">
+              <input id="editarEdad" type="text" class="form-control input-modal" placeholder="EDAD" v-model="edad">
+              <input id="editarCaracteristica" type="text" class="form-control input-modal" placeholder="CARACTERISTICA" v-model="caracteristica">
+              <input id="editarHabilidad" type="text" class="form-control input-modal" placeholder="HABILIDAD" v-model="habilidad">
+            </div>
+            <h4 class="titulo-modal">
+              SE ESTA POR EDITAR UN NUEVO PERSONAJE!
+              DESEA CONTINUAR?
+            </h4>
+            <div class="float-right pt-4">
+              <b-btn type="submit" variant="danger" @click="editarPersonaje">Editar</b-btn>
+            </div>
+            <div class="float-right pr-2 pt-4">
+              <b-btn  type="submit" variant="primary"  style="padding-left: 10px" @click="hideModal">Cancel</b-btn>
+            </div>
+        </div>
+      </b-modal>
 
     <!-- SECCION FILTRO -->
     <div class="seccion-tabla">
@@ -48,7 +68,7 @@
             <div class="col-6 col-md-6">
                 <div class="zona-boton">
                     <label class="switch">
-                      <input id="checkbox-filtro" type="checkbox">
+                      <input id="checkbox-filtro" type="checkbox" @click="filtro = !filtro">
                       <span class="slider round"></span>
                     </label>
                         <p class="parrafo-filtro">Activar / Desactivar FILTRO</p>
@@ -56,8 +76,8 @@
             </div>
               <div class="col-6 col-md-6">
                 <div class="zona-buscar" id="buscador-filtro">
-                <input class="form-control input-filtro " id="inputTabla" type="search" placeholder="Filtrar Busqueda" aria-label="Search"
-                v-model="nuevoArray">
+                <input class="form-control input-filtro " id="inputTabla" type="search" placeholder="Filtrar Nombre" aria-label="Search"
+                v-model="filtroNombre" v-if="filtro">
               </div>
             </div>
         </div>
@@ -67,6 +87,10 @@
     <!-- SECCION TABLA -->
     <div class="table-responsive">
       <table class="table table-dark table-striped">
+        <section v-if="errored">
+          <p>Lo sentimos, no es posible obtener la información en este momento, por favor intente nuevamente mas tarde</p>
+        </section>
+        <div v-if="loading">Cargando...</div>
         <thead>
             <tr>
               <th scope="col">#</th>
@@ -88,7 +112,7 @@
               <td>{{ item.Habilidad}}</td> 
               
               <td>  
-                    <b-button variant="primary"> Editar</b-button> 
+                    <b-button class="boton-editar" variant="primary" @click="showModalEditar(item.id, index)"> Editar</b-button> 
                     <b-button variant="danger" @click="showModalDelete(item.id)">Eliminar</b-button>
               </td>
             </tr>
@@ -96,7 +120,6 @@
       </table>
 
     <!-- MODAL AGREGAR -->
-    <!-- <ModalAgregar @abrirModalAgregar="addCharacter"/> -->
       <div class="button-center">
         <b-button class="btn-agregar btn btn-success" @click="showModalAgregar()">Agregar Personaje</b-button>
       </div>
@@ -106,100 +129,152 @@
 
 <script>
 import axios from "axios"
-// import ModalAgregar from './ModalAgregar'
 
 export default {
   components: {
-    // ModalAgregar,
-  },
+},
 
 data() {
     return {
       arrayPersonajes: [],
-      personajesTabla: [],
-      nuevoArray: ""
+      filtroNombre: "",
+      filtro : false,
+      nombre: "",
+      origen: "",
+      edad : 0,
+      caracteristica : "",
+      habilidad : "",
+      loading: true,
+      errored: false,
     }
-  },
-created () {
- let consumirApi = "https://602367ff6bf3e6001766b0c8.mockapi.io/api/v1/users"
-  axios.get(consumirApi).then (data => {
-    console.log(data)
-    this.arrayPersonajes = data.data
-  })
 },
+
+mounted () {
+  this.getDatosTabla();
+},
+
 methods : {
+  getDatosTabla () {
+      axios.get("https://602367ff6bf3e6001766b0c8.mockapi.io/api/v1/users")
+      .then(data => {
+        this.arrayPersonajes = data.data
+      })
+      .catch((error) => {
+        console.log(error);
+        this.errored = true
+      })
+      .finally(() => this.loading = false
+      )
+  },
+  
   showModalDelete(id) {
     this.id = id
     this.$refs['myModalDelete'].show()
   },
 
-  // addCharacter () {
-  //   console.log('Agregado');
-  // },
-
   showModalAgregar() {
+    this.nombre = "",
+    this.origen = "",
+    this.edad = 0,
+    this.caracteristica = "",
+    this.habilidad = ""
     this.$refs['myModalAgregar'].show()
+  },
+
+  showModalEditar(id, index) {
+    this.id = id;
+    this.nombre = this.arrayPersonajes[index].Nombre,
+    this.origen = this.arrayPersonajes[index].Origen,
+    this.edad = this.arrayPersonajes[index].Edad,
+    this.caracteristica = this.arrayPersonajes[index].Caracteristica,
+    this.habilidad = this.arrayPersonajes[index].Habilidad,
+    this.$refs['myModalEditar'].show()
   },
 
   hideModal() {
     // this.$root.$emit('bv::hide::modal','myModal')
     this.$refs['myModalDelete'].hide()
     this.$refs['myModalAgregar'].hide()
+    this.$refs['myModalEditar'].hide()
   },
 
   deletePersonaje () {
-      // axios.delete(`http://localhost:5000/api/jobs/${this.ID}`)
-      //   .then((res) => {
-      //     this.job_title = ''
-      //     this.job_name = ''
-      //     this.job_location = ''
-      //     this.job_postingURL = ''
-      //     this.job_postingOn = ''
-      //     this.job_postingBy = ''
-      //     this.getJobs()
-      //   console.log(res)
-      //   })
-      //   .catch((err) => {
-      //     console.log(err)
-      //   })
-
-      this.arrayPersonajes = this.arrayPersonajes.filter(x => x.id !== this.id);
+      axios.delete(`https://602367ff6bf3e6001766b0c8.mockapi.io/api/v1/users/${this.id}`)
+      .then(() => {
+        this.getDatosTabla()
+      })
+      .catch((error) => {
+        console.log(error);
+      })
       this.$refs['myModalDelete'].hide()
   },
+
   agregarPersonaje () {
-      // this.arrayPersonajes = this.arrayPersonajes.push(x => );
-  },
+      let datos = {
+        Nombre : this.nombre == "" ? "default" : this.nombre,
+        Origen : this.origen == "" ? "default" : this.origen,
+        Edad : this.edad == 0 ? 0 : this.edad,
+        Caracteristica : this.caracteristica == "" ? "default" : this.caracteristica,
+        Habilidad : this.habilidad == "" ? "default" : this.habilidad,
+      };
 
-  limpiarInput() {
-      this.nuevoArray = ""
-    }
-  },
-
-  computed: {
-    filtrarTabla : function () {
-      console.log(this.nuevoArray)
-          return this.arrayPersonajes = this.arrayPersonajes.filter(( item) => {
-            return item.Nombre.match(this.nuevoArray)
+      axios.post("https://602367ff6bf3e6001766b0c8.mockapi.io/api/v1/users", datos)
+        .then(() => {
+          this.getDatosTabla()
         })
-      }
-    }
+       .catch(function (error) {
+        console.log(error);
+      }).finally(() => 
+        this.nombre = "",
+        this.origen = "",
+        this.edad = 0,
+        this.caracteristica = "",
+        this.habilidad = ""
+      )
+      
+      this.$refs['myModalAgregar'].hide()
+    },
+
+  editarPersonaje() {
+     let datos = {
+        Nombre : this.nombre == "" ? "default" : this.nombre,
+        Origen : this.origen == "" ? "default" : this.origen,
+        Edad : this.edad == 0 ? 0 : this.edad,
+        Caracteristica : this.caracteristica == "" ? "default" : this.ncaracteristicaombre,
+        Habilidad : this.habilidad == "" ? "default" : this.habilidad,
+    };
+    axios.put(`https://602367ff6bf3e6001766b0c8.mockapi.io/api/v1/users/${this.id}`, datos)
+    .then(() => {
+        this.getDatosTabla()
+        })
+    .catch(function (error) {
+    console.log(error);
+    })
+    .finally(() => 
+        console.log()
+    )
+    this.$refs['myModalEditar'].hide()
   }
- 
+},
+
+computed: {
+  // filtrarTabla : function () {
+  //   console.log(this.nuevoArray)
+  //       return this.arrayPersonajes = this.arrayPersonajes.filter(( item) => {
+  //         return item.Nombre.match(this.nuevoArray)
+  //     })
+  //   }
+  },
+}
 </script>
 
 <style>
-/* .btn-agregar{
-    margin-left: 580px;
-    margin-top: 40px;   
-    margin-bottom: 500px;
-}
-
-.tr-Elementos{
-    border: 1px solid black;
- } */
-
 .input-filtro {
  width: 400px
+}
+
+.boton-editar {
+  margin-right: 20px;
 }
 
 .zona-boton {
@@ -225,24 +300,9 @@ methods : {
    padding-bottom: 25px;
 }
 
-/* .seccion-tabla {
-    max-width: 100%;
-    height: 250px;
-} */
-
 .btn-editar {
   margin-right: 15px;
 }
-
-/* .modal {
-  position:absolute;
-  background: none;
-  box-shadow: none;
-}
-
-.modal-backdrop {
-  position: unset;
-} */
 
 .titulo-modal {
   font-size: 15px;

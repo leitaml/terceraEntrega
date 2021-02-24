@@ -14,15 +14,6 @@
   <!-- Componente Tabla -->
   <Tabla />
   
-  <!--Componente  Modal AGREGAR -->
-  <!-- <ModalAgregar /> -->
-
-  <!-- Componenete MODAL EDITAR -->
-  <!-- <ModalEditar  /> -->
-
-  <!-- Componente MODAL ELIMINAR -->
-  <!-- <ModalEliminar /> -->
-
   <!-- Componente FOOTER  -->
   <Footer />
 
@@ -33,19 +24,13 @@
 
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
-// import ModalAgregar from "../components/ModalAgregar"
-// import ModalEditar from "../components/ModalEditar"
-// import ModalEliminar from "../components/ModalEliminar"
 import Tabla from "../components/Tabla"
 
 export default {
   components: {
-    Footer,
     Navbar,
-    // ModalAgregar,
-    // ModalEditar,
-    // ModalEliminar,
     Tabla,
+    Footer,
   },
 }
   
