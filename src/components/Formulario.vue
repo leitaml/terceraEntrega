@@ -1,12 +1,13 @@
 <template>
   <div>
       
+  <!-- FORMULARIO INICIAR SESION -->
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
         <div class="form-left">
           <h5>
-            Iniciar sesion
+           {{ titulo }}
           </h5>
 
           <img class="usuario1" src="../assets/usuario2.png" alt="logo-usuario">
@@ -26,14 +27,15 @@
                v-model="password">
             </div>
 
+           <!-- COMPONENTE BOTON LOGIN -->
+               <ButtonLogin @login="iniciarSesion" nameLogin="Entrar" />
 
-            <button type="submit" class="btn btn-primary" 
-              @click.prevent="login"
-               >Entrar</button>
           </form>
         </div>
       </div>
 
+
+    <!-- FORMULARIO REGISTRARSE -->
       <div class="col-sm-2">
         <div class="form-center">
 
@@ -75,6 +77,7 @@
             </div>
 
             <button type="submit" class="btn btn-success">Submit</button>
+
           </form>
         </div>
       </div>
@@ -84,7 +87,7 @@
 </template>
 
 <script>
-
+import ButtonLogin from "./ButtonLogin"
 import axios from "axios"
 export default {
   
@@ -92,22 +95,33 @@ data: function() {
     return {
       usuario: "",
       password: "",
+      titulo: " Iniciar sesion"
+      
+      
+      
     }
 },
+components: {
+  ButtonLogin,
+
+},
+
 methods: {
-    login() {
+    iniciarSesion() {
       let datos = {
         "usuario" : this.usuario,
         "password" : this.password
       };
+      
       axios.post("https://602367ff6bf3e6001766b0c8.mockapi.io/api/v1/users" , datos)
           .then(data => {
           console.log(data)
-          if(data.data.usuario == "juan" && data.data.password == 123456){
-            console.log("Bienvenido Juan")
-          }else {
-            console.log("Usuario incorrecto")
+          if (this.usuario && this.password === "pepito")  {
+              alert("Bienvenido Pepito")
+          } else{
+            alert("usuario o contraseña incorrecta")
           }
+         
       })
     }
   },
