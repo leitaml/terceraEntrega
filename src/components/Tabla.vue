@@ -217,7 +217,6 @@ methods : {
   },
 
   agregarPersonaje () {
-  
       let datos = {
         Nombre : this.nombre == "" ? "default" : this.nombre,
         Origen : this.origen == "" ? "default" : this.origen,
@@ -232,18 +231,16 @@ methods : {
         })
        .catch(function (error) {
         console.log(error);
-      }).finally(() => 
-        this.nombre = "",
-        this.origen = "",
-        this.edad = 0,
-        this.caracteristica = "",
-        this.habilidad = "",
-        this.loading = false
-      )
-     
-      
-      this.$refs['myModalAgregar'].hide()
-    },
+        }).finally(() => 
+          this.nombre = "",
+          this.origen = "",
+          this.edad = 0,
+          this.caracteristica = "",
+          this.habilidad = "",
+          this.loading = false
+        )
+        this.$refs['myModalAgregar'].hide()
+      },
 
   editarPersonaje() {
      let datos = {
@@ -286,11 +283,11 @@ computed: {
     }
   },
   bloquear() {
-    return this.nombre === "" ? true : false,
-           this.origen === "" ? true : false,
-           this.edad === "" ? true : false,
-           this.caracteristica === "" ? true : false,
-           this.habilidad === "" ? true : false
+     if (this.nombre === "" || this.origen === "" || this.caracteristica === "" || this.habilidad === "") {
+       return true
+     } else {
+       return false
+     }
     }
   }
 }
