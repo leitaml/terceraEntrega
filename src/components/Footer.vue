@@ -11,11 +11,11 @@
                     </div>
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="footer-right">
-                        <a class="contenedor-images" href="https://es-la.facebook.com/ubisoft/" target="_blank"> <img class="logo-facebook"
+                        <a class="contenedor-images" v-bind:href="enlaceFacebook" target="_blank"> <img class="logo-facebook"
                             src="../assets/facebook.png" alt="logo-facebook"></a>
-                        <a class="contenedor-images" href="https://www.instagram.com/ubisoft/?hl=es-la" target="_blank"> <img class="logo-instagram"
+                        <a class="contenedor-images" v-bind:href="enlaceInstagram" target="_blank"> <img class="logo-instagram"
                             src="../assets/instagram.png" alt="logo-instagram"></a>
-                        <a class="contenedor-images" href="https://twitter.com/ubisoftlatam?lang=es" target="_blank"> <img class="logo-twitter"
+                        <a class="contenedor-images" v-bind:href="enlaceTwitter" target="_blank"> <img class="logo-twitter"
                             src="../assets/tweeter.png" alt="logo-tweeter"></a>
                     </div>
                 </div>
@@ -27,6 +27,13 @@
 
 <script>
 export default {
+    data() {
+        return {
+            enlaceFacebook: "https://es-la.facebook.com/ubisoft/" ,
+            enlaceInstagram: "https://www.instagram.com/ubisoft/?hl=es-la",
+            enlaceTwitter: "https://twitter.com/ubisoftlatam?lang=es"
+        }
+    },
 
 }
 </script>

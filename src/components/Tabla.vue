@@ -7,7 +7,7 @@
         <h3 class="font-weight-light">¿Quieres eliminar esta fila?</h3>
       </div>
       <div class="float-right pt-4">
-        <b-btn type="submit" variant="danger" @click="deletePersonaje">Delete</b-btn> 
+        <b-btn type="submit" variant="danger"  @click="deletePersonaje">Delete</b-btn> 
       </div>
       <div class="float-right pr-2 pt-4">
         <b-btn  type="submit" variant="primary"  style="padding-left: 10px" @click="hideModal">Cancel</b-btn>
@@ -21,7 +21,7 @@
             <div>
               <input id="nombreModal" type="text" class="form-control input-modal" placeholder="NOMBRE" v-model="nombre">
               <input id="origenModal" type="text" class="form-control input-modal" placeholder="ORIGEN" v-model="origen">
-              <input id="edadModal" type="text" class="form-control input-modal" placeholder="EDAD" v-model="edad">
+              <input id="edadModal" type="text" class="form-control input-modal" placeholder="EDAD" v-model.number="edad">
               <input id="caracteristicaModal" type="text" class="form-control input-modal" placeholder="CARACTERISTICA" v-model="caracteristica">
               <input id="habilidadModal" type="text" class="form-control input-modal" placeholder="HABILIDAD" v-model="habilidad">
             </div>
@@ -30,10 +30,14 @@
               DESEA CONTINUAR?
             </h4>
             <div class="float-right pt-4">
-              <b-btn type="submit" variant="danger" @click="agregarPersonaje">Agregar</b-btn> 
+              <b-btn type="submit" variant="danger" :disabled="bloquear" @click="agregarPersonaje" > Agregar</b-btn> 
             </div>
+
+
+
+
             <div class="float-right pr-2 pt-4">
-              <b-btn  type="submit" variant="primary"  style="padding-left: 10px" @click="hideModalAgregar">Cancel</b-btn>
+              <b-btn  type="submit" variant="primary"  style="padding-left: 10px" @click="hideModal">Cancel</b-btn>
             </div>
         </div>
     </b-modal>
@@ -44,7 +48,7 @@
             <div>
               <input id="editarNombre" type="text" class="form-control input-modal" placeholder="NOMBRE" v-model="nombre">
               <input id="editarOrigen" type="text" class="form-control input-modal" placeholder="ORIGEN" v-model="origen">
-              <input id="editarEdad" type="text" class="form-control input-modal" placeholder="EDAD" v-model="edad">
+              <input id="editarEdad" type="text" class="form-control input-modal" placeholder="EDAD" v-model.number="edad">
               <input id="editarCaracteristica" type="text" class="form-control input-modal" placeholder="CARACTERISTICA" v-model="caracteristica">
               <input id="editarHabilidad" type="text" class="form-control input-modal" placeholder="HABILIDAD" v-model="habilidad">
             </div>
@@ -53,7 +57,7 @@
               DESEA CONTINUAR?
             </h4>
             <div class="float-right pt-4">
-              <b-btn type="submit" variant="danger" @click="editarPersonaje">Editar</b-btn>
+              <b-btn type="submit" variant="danger" :disabled="bloquear" @click="editarPersonaje">Editar</b-btn>
             </div>
             <div class="float-right pr-2 pt-4">
               <b-btn  type="submit" variant="primary"  style="padding-left: 10px" @click="hideModal">Cancel</b-btn>
@@ -78,7 +82,7 @@
               <div class="col-6 col-md-6">
                 <div class="zona-buscar" id="buscador-filtro">
                 <input class="form-control input-filtro " id="inputTabla" type="search" placeholder="Filtrar Nombre" aria-label="Search"
-                v-model="filtroNombre" v-if="filtro">
+                v-model="filtroPersonaje" v-if="filtro">
               </div>
             </div>
         </div>
@@ -142,7 +146,7 @@ export default {
 data() {
     return {
       arrayPersonajes: [],
-      filtroNombre: "",
+      filtroPersonaje: "",
       filtro : false,
       nombre: "",
       origen: "",
@@ -151,6 +155,7 @@ data() {
       habilidad : "",
       loading: true,
       errored: false,
+      cargando: false,
     }
 },
 
@@ -203,15 +208,6 @@ methods : {
     this.$refs['myModalEditar'].hide()
   },
 
-  hideModalEditar() {
-      this.$refs['myModalEditar'].hide()
-  },
-  
-  hideModalAgregar() {
-     this.$refs['myModalAgregar'].hide()
-    
-  },
-  
 
   deletePersonaje () {
       axios.delete(`https://602367ff6bf3e6001766b0c8.mockapi.io/api/v1/users/${this.id}`)
@@ -225,6 +221,7 @@ methods : {
   },
 
   agregarPersonaje () {
+  
       let datos = {
         Nombre : this.nombre == "" ? "default" : this.nombre,
         Origen : this.origen == "" ? "default" : this.origen,
@@ -245,6 +242,7 @@ methods : {
         this.caracteristica = "",
         this.habilidad = ""
       )
+     
       
       this.$refs['myModalAgregar'].hide()
     },
@@ -272,18 +270,20 @@ methods : {
 },
 
 computed: {
-     filteredData: function() {
-    return this.arrayPersonajes.filter((items) => {
-      for (var item in items) {
-        if(String(items[item]).indexOf(this.filtroNombre) !== -1) {
-          return true
-        }
-      }
-      return false
-    })
-  }
-},
+   bloquear() {
+     return this.nombre === "" ? true : false,
+            this.origen === "" ? true : false,
+            this.edad === "" ? true : false,
+            this.caracteristica === "" ? true : false,
+            this.habilidad === "" ? true : false
+
+   }
+
 }
+
+
+}
+
 </script>
 
 <style>

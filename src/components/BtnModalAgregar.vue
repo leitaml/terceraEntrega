@@ -1,7 +1,7 @@
 <template>
   <div>
       <div class="button-center">
-        <b-button class="btn-agregar btn btn-success" @click="abrirModal"> {{ nameButton }} </b-button>
+        <b-button class="btn-agregar btn btn-success"  @click="abrirModal"> {{ nameButton }} </b-button>
       </div>
   </div>
 </template>
@@ -11,7 +11,7 @@ export default {
     props: ["nameButton"],
     data() {
         return {
-            nombre: "juan"
+            
         }
     },
   methods: {

@@ -17,7 +17,7 @@
               desarrolla tu asentamiento y aumenta tu poder político en busca de ganar un lugar entre los dioses del
               Valhalla.
             </p>
-            <a href="https://store.playstation.com/es-ar/product/UP0001-CUSA18522_00-EDITIONSTANDARD0"
+            <a v-bind:href="enlace"
               class="btn btn-primary btn mt-5 " target="_blank">RESERVAR AHORA</a>
           </div>
         </div>
@@ -119,6 +119,11 @@ export default {
     Carousel
   
   }, 
+  data() {
+    return {
+      enlace: "https://store.playstation.com/es-ar"
+    }
+  },
 }
 </script>
 

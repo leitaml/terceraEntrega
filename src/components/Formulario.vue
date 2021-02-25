@@ -28,7 +28,7 @@
             </div>
 
            <!-- COMPONENTE BOTON LOGIN -->
-               <ButtonLogin nameLogin="Entrar" />
+               <ButtonLogin @login="iniciarSesion" nameLogin="Entrar" />
 
           </form>
         </div>
@@ -107,19 +107,21 @@ components: {
 },
 
 methods: {
-    login() {
+    iniciarSesion() {
       let datos = {
         "usuario" : this.usuario,
         "password" : this.password
       };
+      
       axios.post("https://602367ff6bf3e6001766b0c8.mockapi.io/api/v1/users" , datos)
           .then(data => {
           console.log(data)
-          if(data.data.usuario == "juan" && data.data.password == 123456){
-            console.log("Bienvenido Juan")
-          }else {
-            console.log("Usuario incorrecto")
+          if (this.usuario && this.password === "pepito")  {
+              alert("Bienvenido Pepito")
+          } else{
+            alert("usuario o contraseña incorrecta")
           }
+         
       })
     }
   }
