@@ -26,6 +26,15 @@ Vue.directive('focusBackgroundColor', {
   },
 })
 
+Vue.filter('capitalize', function (value) {
+  value = value.toString()
+  return value.charAt(0).toUpperCase() + value.slice(1)
+})
+
+Vue.filter('edad', function (value) {
+  return value + " años";
+})
+
 new Vue({
   router,
   store,

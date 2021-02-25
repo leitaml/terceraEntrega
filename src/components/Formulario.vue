@@ -23,7 +23,7 @@
             <div class="form-group ">
 
               <label for="exampleInputPassword2">Contraseña :</label>
-              <input v-focusBackgroundColor type="password" class="form-control" name="password" id="password"
+              <input type="password" class="form-control" name="password" id="password"
                v-model="password">
             </div>
 

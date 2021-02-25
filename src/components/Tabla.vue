@@ -105,11 +105,11 @@
         <tbody>
             <tr v-for="(item, index) in resultSearch" :key="item.id" > 
               <th scope="row">{{ index }}</th>
-              <td>{{ item.Nombre }}</td>
-              <td>{{ item.Origen }}</td>
-              <td>{{ item.Edad }}</td>
-              <td>{{ item.Caracteristica }}</td>
-              <td>{{ item.Habilidad}}</td> 
+              <td>{{ item.Nombre | capitalize }}</td>
+              <td>{{ item.Origen | capitalize}}</td>
+              <td>{{ item.Edad | edad }}</td>
+              <td>{{ item.Caracteristica | capitalize}}</td>
+              <td>{{ item.Habilidad | capitalize }}</td> 
               
               <td>  
                 <b-button class="boton-editar" variant="primary" @click="showModalEditar(item.id, index)"> Editar</b-button> 
@@ -117,11 +117,10 @@
               </td>
             </tr>
         </tbody>
-       
       </table>
 
     <!--COMPONENTE BUTTON MODAL AGREGAR -->
-      <BtnModalAgregar @abrirModal="showModalAgregar" nameButton="Agregar Personaje"/>
+    <BtnModalAgregar @abrirModal="showModalAgregar" nameButton="Agregar Personaje"/>
 
     </div>
  </div>
@@ -295,7 +294,6 @@ computed: {
     }
   }
 }
-
 </script>
 
 <style>
