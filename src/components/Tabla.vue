@@ -9,9 +9,10 @@
         <b-btn type="submit" variant="danger" @click="deletePersonaje">Delete</b-btn> 
       </div>
       <div class="float-right pr-2 pt-4">
-        <b-btn  type="submit" variant="primary"  style="padding-left: 10px" @click="hideModal">Cancel</b-btn>
+        <b-btn  type="submit" variant="primary"  style="padding-left: 10px" @click="hideModalDelete">Cancel</b-btn>
       </div>
     </b-modal>
+
 
     <!-- MODAL AGREGAR -->
     <b-modal ref="myModalAgregar" id="modal-lg" title="AGREGAR PERSONAJE" centered hide-footer hide-header>
@@ -31,7 +32,7 @@
               <b-btn type="submit" variant="danger" @click="agregarPersonaje">Agregar</b-btn> 
             </div>
             <div class="float-right pr-2 pt-4">
-              <b-btn  type="submit" variant="primary"  style="padding-left: 10px" @click="hideModal">Cancel</b-btn>
+              <b-btn  type="submit" variant="primary"  style="padding-left: 10px" @click="hideModalAgregar">Cancel</b-btn>
             </div>
         </div>
     </b-modal>
@@ -123,6 +124,8 @@
       <div class="button-center">
         <b-button class="btn-agregar btn btn-success" @click="showModalAgregar()">Agregar Personaje</b-button>
       </div>
+
+
     </div>
  </div>
 </template>
@@ -133,6 +136,7 @@ import axios from "axios"
 export default {
   components: {
 },
+
 
 data() {
     return {
@@ -173,7 +177,7 @@ methods : {
     this.id = id,
     this.$refs['myModalDelete'].show()
   },
-
+  
   showModalAgregar() {
     this.nombre = "",
     this.origen = "",
@@ -199,6 +203,16 @@ methods : {
     this.$refs['myModalEditar'].hide()
   },
 
+  hideModalEditar() {
+      this.$refs['myModalEditar'].hide()
+  },
+  
+  hideModalAgregar() {
+     this.$refs['myModalAgregar'].hide()
+    
+  },
+  
+
   deletePersonaje () {
       axios.delete(`https://602367ff6bf3e6001766b0c8.mockapi.io/api/v1/users/${this.id}`)
       .then(() => {
@@ -222,7 +236,6 @@ methods : {
         Caracteristica : this.caracteristica == "" ? "default" : this.caracteristica,
         Habilidad : this.habilidad == "" ? "default" : this.habilidad,
       };
-
       axios.post("https://602367ff6bf3e6001766b0c8.mockapi.io/api/v1/users", datos)
         .then(() => {
           this.getDatosTabla()
