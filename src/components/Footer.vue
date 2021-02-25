@@ -6,7 +6,7 @@
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="footer-left">
                     <a class="copyright" href="https://es-la.facebook.com/juan.ariztegui.5" target="_blank"> <img class="logo-copyright" src="../assets/copy.png" alt="logo-copyright"></a>
-                        <h4>DERECHO RESERVADO.</h4>
+                        <h4>LEITAO | ARIZTEGUI</h4>
                     </div>
                     </div>
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6">

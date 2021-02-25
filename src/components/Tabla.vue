@@ -10,7 +10,7 @@
         <b-btn type="submit" variant="danger" @click="deletePersonaje">Delete</b-btn> 
       </div>
       <div class="float-right pr-2 pt-4">
-        <b-btn  type="submit" variant="primary"  style="padding-left: 10px" @click="hideModalDelete">Cancel</b-btn>
+        <b-btn  type="submit" variant="primary"  style="padding-left: 10px" @click="hideModal">Cancel</b-btn>
       </div>
     </b-modal>
 
@@ -120,10 +120,9 @@
         </tbody>
       </table>
 
-    <!-- MODAL AGREGAR -->
-      <div class="button-center">
-        <b-button class="btn-agregar btn btn-success" @click="showModalAgregar()">Agregar Personaje</b-button>
-      </div>
+    <!--COMPONENTE BUTTON MODAL AGREGAR -->
+       <BtnModalAgregar @abrirModal="showModalAgregar"  nameButton="Agregar Personaje"/>
+      
 
 
     </div>
@@ -132,9 +131,11 @@
 
 <script>
 import axios from "axios"
+import BtnModalAgregar from "./BtnModalAgregar"
 
 export default {
   components: {
+    BtnModalAgregar,
 },
 
 
@@ -271,13 +272,17 @@ methods : {
 },
 
 computed: {
-  // filtrarTabla : function () {
-  //   console.log(this.nuevoArray)
-  //       return this.arrayPersonajes = this.arrayPersonajes.filter(( item) => {
-  //         return item.Nombre.match(this.nuevoArray)
-  //     })
-  //   }
-  },
+     filteredData: function() {
+    return this.arrayPersonajes.filter((items) => {
+      for (var item in items) {
+        if(String(items[item]).indexOf(this.filtroNombre) !== -1) {
+          return true
+        }
+      }
+      return false
+    })
+  }
+},
 }
 </script>
 
