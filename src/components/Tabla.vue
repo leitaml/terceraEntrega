@@ -28,11 +28,8 @@
               DESEA CONTINUAR?
             </h4>
             <div class="float-right pt-4">
-              <b-btn type="submit" variant="danger" :disabled="bloquear" @click="agregarPersonaje" > Agregar</b-btn> 
+              <b-btn type="submit" variant="danger" :disabled="bloquear" @click="agregarPersonaje"> Agregar</b-btn> 
             </div>
-
-
-
 
             <div class="float-right pr-2 pt-4">
               <b-btn  type="submit" variant="primary"  style="padding-left: 10px" @click="hideModal">Cancel</b-btn>
@@ -79,8 +76,8 @@
             </div>
               <div class="col-6 col-md-6">
                 <div class="zona-buscar" id="buscador-filtro">
-                <input class="form-control input-filtro " id="inputTabla" type="search" placeholder="Filtrar Nombre" aria-label="Search"
-                v-model="filtroPersonaje" v-if="filtro">
+                <input class="form-control input-filtro " id="inputTabla" type="search" placeholder="Filtrar" aria-label="Search"
+                v-model="filtroNombre" v-if="filtro">
               </div>
             </div>
         </div>
@@ -124,7 +121,7 @@
       </table>
 
     <!--COMPONENTE BUTTON MODAL AGREGAR -->
-      <BtnModalAgregar @abrirModal="showModalAgregar"  nameButton="Agregar Personaje"/>
+      <BtnModalAgregar @abrirModal="showModalAgregar" nameButton="Agregar Personaje"/>
 
     </div>
  </div>
@@ -282,22 +279,19 @@ methods : {
 },
 
 computed: {
-
-    resultSearch(){
-      if(this.filtroNombre){
-      return this.arrayPersonajes.filter(x => this.contieneString(x.Nombre.toLowerCase(), this.filtroNombre));
-      } else {
-        return this.arrayPersonajes;
-      }
+  resultSearch(){
+    if(this.filtroNombre){
+    return this.arrayPersonajes.filter(x => this.contieneString(x.Nombre.toLowerCase(), this.filtroNombre));
+    } else {
+      return this.arrayPersonajes;
     }
   },
-}
-bloquear() {
-     return this.nombre === "" ? true : false,
-            this.origen === "" ? true : false,
-            this.edad === "" ? true : false,
-            this.caracteristica === "" ? true : false,
-            this.habilidad === "" ? true : false
+  bloquear() {
+    return this.nombre === "" ? true : false,
+           this.origen === "" ? true : false,
+           this.edad === "" ? true : false,
+           this.caracteristica === "" ? true : false,
+           this.habilidad === "" ? true : false
     }
   }
 }
