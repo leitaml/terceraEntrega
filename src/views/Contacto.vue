@@ -24,8 +24,22 @@ export default {
     Navbar,
     Formulario
   },
-
-}
+  borderColor: {
+      bind(el, binding) {
+        let color = binding.value.color;
+        if (binding.modifiers["default"]) {
+          color = "blue";
+        }
+        setTimeout(() => {
+          if (binding.arg === "border") {
+            el.style.borderColor = color;
+          } else {
+            el.style.borderColor = color;
+          }
+        }, 0);
+      },
+    },
+  };
 </script>
 
 <style>
