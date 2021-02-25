@@ -16,14 +16,14 @@
             <div class="form-group ">
 
               <label for="exampleInputEmail2">Usuario :</label>
-              <input type="text" class="form-control" name="login" id="login"
+              <input v-focusBackgroundColor type="text" class="form-control" name="login" id="login"
                v-model="usuario">
 
             </div>
             <div class="form-group ">
 
               <label for="exampleInputPassword2">Contraseña :</label>
-              <input type="password" class="form-control" name="password" id="password"
+              <input v-focusBackgroundColor type="password" class="form-control" name="password" id="password"
                v-model="password">
             </div>
 
@@ -124,7 +124,7 @@ methods: {
          
       })
     }
-  }
+  },
 }
 
 </script>
